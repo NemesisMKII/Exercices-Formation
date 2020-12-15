@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(72, 22, 22, 0.331);
+    background-color: rgba(165, 127, 101, 0.671);
 }
 
 .grid {
@@ -23,6 +23,13 @@ header ul {
     text-align: right;
 }
 
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
 .parkour {
     grid-row: 2 / 3;
     grid-column: 1 / 4;
@@ -42,6 +49,11 @@ header ul {
     bottom: 0px;
     left: 0px;
     opacity: 0.15;
+}
+
+.parkour ul {
+    display: block;
+    align-self: center;
 }
 
 .parkour-right {
