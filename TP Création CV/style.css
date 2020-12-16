@@ -1,0 +1,25 @@
+ul {
+    list-style-type: None;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 40% 25% 25% 25%;
+}
+
+.header {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.experience {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.skills {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+.parkour {
+    grid-area: 4 / 1 / 5 / 2;
+}
