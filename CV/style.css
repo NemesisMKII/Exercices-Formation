@@ -54,12 +54,10 @@ div .container {
 
 div .parkour  {
     border: 1px solid black;
-    width: 50%;
 }
 
 div .parkour-right {
     border: 1px solid black;
-    width: 30%;
 }
 
 div .parkour-right img {
@@ -69,4 +67,22 @@ div .parkour-right img {
 
 div .experience {
 
+}
+
+@media screen and (min-width: 1024px) {
+    div .col-l-10 {
+        width: 83.33%;
+    }
+
+    div .col-l-6 {
+        width: 50%;
+    }
+
+    div .col-l-4 {
+        width: 43.33%;
+    }
+
+    div .row-l-4 {
+        height: 33.33%;
+    }
 }
