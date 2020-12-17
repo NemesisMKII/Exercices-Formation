@@ -5,10 +5,17 @@ html, body {
     width: 100%;
 }
 
+body {
+    padding-top: 50px;
+}
+
 header {
     background-color: chocolate;
     border-bottom: 1px solid black;
     text-align: right;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 header a {
@@ -22,5 +29,19 @@ header nav {
 }
 
 header nav ul {
+    list-style-type: none;
+    padding: 0 10px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+ul {
     list-style-type: none;
 }
