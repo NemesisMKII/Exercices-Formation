@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "mezalia sumatra";
+    src: local("./CV/fonts/Mezalia_Sumatra.ttf") format("ttf"); 
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -10,12 +15,35 @@ body {
 }
 
 header {
-    background-color: chocolate;
+    background-color: #97694E;
     border-bottom: 1px solid black;
     text-align: right;
     position: fixed;
     width: 100%;
     top: 0;
+}
+
+.btn-group {
+    background-color: rgba(210, 105, 30, 0.564);
+}
+
+.btn-experience {
+    font-family: "mezalia sumatra" !important;
+}
+
+.btn-experience:hover {
+    background-color: #0080007b;
+    color: blanchedalmond !important;
+}
+
+.btn-parkour:hover {
+    background-color: #a52a2a80;
+    color: blanchedalmond !important;
+}
+
+.btn-skills:hover {
+    background-color: #ffff007e;
+    color: blanchedalmond !important;
 }
 
 h1 {
@@ -38,6 +66,10 @@ div .container {
 
 div .parkour  {
     border: 1px solid black;
+}
+
+DIV .parkour::before {
+    background: url("https://picsum.photos/500/500");
 }
 
 div .parkour-right {
@@ -63,7 +95,7 @@ div .skills-right {
 
 @media screen and (min-width: 1024px) {
     div .container.col-l-8 {
-        width: 66%;
+        width: 65.75%;
         min-height: 300px;
         max-height: 300px;
         font-size: 0.85rem;
