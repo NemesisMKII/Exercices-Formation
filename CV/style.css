@@ -66,9 +66,9 @@ div .container {
 }
 
 div .parkour  {
-    border: 1px solid black;
+    border: 1px solid white;
     position: relative;
-    background-color: rgba(165, 42, 42, 0.568);
+    background-color: rgba(165, 42, 42, 0.708);
 }
 
 div .parkour::before {
@@ -84,17 +84,17 @@ div .parkour::before {
 }
 
 div .parkour-right {
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 div .experience-left {
-    border: 1px solid black;
+    border: 1px solid white;
 }
 
 div .experience {
-    border: 1px solid black;
+    border: 1px solid white;
     position: relative;
-    background-color: rgba(0, 128, 0, 0.407);
+    background-color: rgba(0, 128, 0, 0.701);
 }
 
 div .experience::before {
@@ -110,9 +110,9 @@ div .experience::before {
 }
 
 div .skills {
-    border: 1px solid black;
+    border: 1px solid white;
     position: relative;
-    background-color: rgba(0, 128, 0, 0.407);
+    background-color: rgba(255, 255, 0, 0.708);
 }
 
 div .skills::before {
@@ -124,11 +124,11 @@ div .skills::before {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.15;
+    opacity: 0.20;
 }
 
 div .skills-right {
-    border: 1px solid black;
+    border: 1px solid white;
     max-height: 600px;
 }
 
