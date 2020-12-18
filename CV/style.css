@@ -67,6 +67,7 @@ div .container {
 div .parkour  {
     border: 1px solid black;
     position: relative;
+    background-color: rgba(165, 42, 42, 0.568);
 }
 
 DIV .parkour::before {
