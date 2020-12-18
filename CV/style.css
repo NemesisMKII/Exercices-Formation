@@ -21,6 +21,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
+    z-index: 99;
 }
 
 .btn-group {
@@ -70,7 +71,7 @@ div .parkour  {
     background-color: rgba(165, 42, 42, 0.568);
 }
 
-DIV .parkour::before {
+div .parkour::before {
     content: "";
     background: url("https://picsum.photos/400/401"); 
     background-size: cover;
@@ -92,10 +93,37 @@ div .experience-left {
 
 div .experience {
     border: 1px solid black;
+    position: relative;
+    background-color: rgba(0, 128, 0, 0.407);
+}
+
+div .experience::before {
+    content: "";
+    background: url("https://picsum.photos/400/401"); 
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.15;
 }
 
 div .skills {
     border: 1px solid black;
+    position: relative;
+}
+
+div .skills::before {
+    content: "";
+    background: url("https://picsum.photos/400/401"); 
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.15;
 }
 
 div .skills-right {
