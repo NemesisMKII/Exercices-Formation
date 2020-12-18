@@ -66,10 +66,19 @@ div .container {
 
 div .parkour  {
     border: 1px solid black;
+    position: relative;
 }
 
 DIV .parkour::before {
-    background: url("https://picsum.photos/500/500");
+    content: "";
+    background: url("https://picsum.photos/400/401"); 
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.15;
 }
 
 div .parkour-right {
