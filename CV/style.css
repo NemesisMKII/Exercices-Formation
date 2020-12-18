@@ -15,7 +15,7 @@ body {
 }
 
 header {
-    background-color: #97694E;
+    background-color: rgb(148, 113, 92);
     border-bottom: 1px solid black;
     text-align: right;
     position: fixed;
@@ -25,7 +25,7 @@ header {
 }
 
 .btn-group {
-    background-color: rgba(210, 105, 30, 0.564);
+    background-color: rgba(210, 105, 30, 0.324);
 }
 
 .btn-experience {
