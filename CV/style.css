@@ -62,7 +62,7 @@ a:hover {
         width: 100%;
     }
 
-    div #title-photo h3 {
+    h3 {
         text-align: center;
     }
 
@@ -87,16 +87,21 @@ a:hover {
         opacity: 0.15;
     }
 
-    div a:focus #title-photo {
+    div a#block_1:focus #title-photo, 
+    div a#block_2:focus #title-photo,
+    div a#block_3:focus #title-photo {
         height: 65px;
     }
 
-    div a:focus #title-photo + section#parcours {
+    div a#block_1:focus + section#parcours, 
+    div a#block_2:focus + section#experience, 
+    div a#block_3:focus + section#skills {
+        display: block;
         height: 350px;
         opacity: 100%;
     }
 
-    #parcours, #experience, #skills {
+    section#parcours, #experience, #skills {
         overflow: hidden;
         height: 0;
         opacity: 0;
