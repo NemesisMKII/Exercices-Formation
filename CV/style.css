@@ -1,20 +1,4 @@
-@font-face {
-    font-family: "mezalia sumatra";
-    src: local("./CV/fonts/Mezalia_Sumatra.ttf") format("ttf"); 
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-}
-
-body {
-    padding-top: 50px;
-}
-
-header {
+/* header {
     background-color: rgb(148, 113, 92);
     border-bottom: 1px solid black;
     text-align: right;
@@ -22,133 +6,47 @@ header {
     width: 100%;
     top: 0;
     z-index: 99;
+
+    div .parkour  {
+    border: 1px solid white;
+    position: relative;
+    background-color: rgba(165, 42, 42, 0.708);
+    }
+
+    div .experience {
+    border: 1px solid white;
+    position: relative;
+    background-color: rgba(0, 128, 0, 0.701);
 }
 
-.btn-group {
-    background-color: rgba(210, 105, 30, 0.324);
+    div .skills {
+    border: 1px solid white;
+    position: relative;
+    background-color: rgba(255, 255, 0, 0.708);
 }
+ */
 
-.btn-experience {
-    font-family: "mezalia sumatra";
-}
+html, body {
+    margin: 0;
+    padding: 0;
 
-.btn-experience:hover {
-    background-color: #0080007b;
-    color: blanchedalmond ;
-}
-
-.btn-parkour:hover {
-    background-color: #a52a2a80;
-    color: blanchedalmond;
-}
-
-.btn-skills:hover {
-    background-color: #ffff007e;
-    color: blanchedalmond;
-}
-
-h1 {
-    text-align: center; 
-}
-
-h2 {
-    text-align: center;
 }
 
 ul {
     list-style-type: none;
 }
 
-div .container {
+.row {
+    margin: 0;
+}
+
+.container {
     padding: 0;
-    margin-left: 16.50%;
-    display: flex;
+    height: 50%;
 }
-
-div .parkour  {
-    border: 1px solid white;
-    position: relative;
-    background-color: rgba(165, 42, 42, 0.708);
-}
-
-div .parkour::before {
-    content: "";
-    background: url("https://picsum.photos/400/401"); 
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.15;
-}
-
-div .parkour-right {
-    border: 1px solid white;
-}
-
-div .experience-left {
-    border: 1px solid white;
-}
-
-div .experience {
-    border: 1px solid white;
-    position: relative;
-    background-color: rgba(0, 128, 0, 0.701);
-}
-
-div .experience::before {
-    content: "";
-    background: url("https://picsum.photos/400/401"); 
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.15;
-}
-
-div .skills {
-    border: 1px solid white;
-    position: relative;
-    background-color: rgba(255, 255, 0, 0.708);
-}
-
-div .skills::before {
-    content: "";
-    background: url("https://picsum.photos/400/401"); 
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.20;
-}
-
-div .skills-right {
-    border: 1px solid white;
-    max-height: 600px;
-}
-
-@media screen and (min-width: 992px) {
-    div .container.col-l-8 {
-        width: 65.75%;
-        min-height: 300px;
-        max-height: 300px;
-        font-size: 0.85rem;
+@media screen and (max-width: 576px) {
+    div .col-xs-12 {
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
-
-    div .col-l-6 {
-        width: 60%;
-    }
-
-    div .col-l-4 {
-        width: 40%;
-    } 
-}
-
-@media screen and (min-width: 1200px) {
-
-}
