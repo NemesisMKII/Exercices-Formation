@@ -29,6 +29,8 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
+    width: 100%;
 
 }
 
@@ -42,11 +44,63 @@ ul {
 
 .container {
     padding: 0;
-    height: 50%;
 }
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
 @media screen and (max-width: 576px) {
     div .col-xs-12 {
         margin: 0;
         padding: 0;
         width: 100%;
     }
+
+    div #title-photo h3 {
+        text-align: center;
+    }
+
+    div #title-photo {
+        position: relative;
+        background-color: rgba(165, 42, 42, 0.708);
+        height: 350px;
+        transition: height 0.75s;
+        display: block;
+        border-bottom: 1px solid white;
+    }
+
+    div #title-photo::before {
+        content: "";
+        background: url("https://picsum.photos/400/401"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.15;
+    }
+
+    div a:focus #title-photo {
+        height: 65px;
+    }
+
+    div a:focus #title-photo + section#parcours {
+        height: 350px;
+        opacity: 100%;
+    }
+
+    #parcours, #experience, #skills {
+        overflow: hidden;
+        height: 0;
+        opacity: 0;
+        transition: height 0.75s, opacity 1s;
+    }
+
+}
