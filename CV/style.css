@@ -76,25 +76,23 @@ a:hover {
 
     .experience div#title-photo {
         position: relative;
-        background-color: rgba(0, 128, 0, 0.701);
+        background-color: rgba(0, 128, 0, 0.852);
         height: 350px;
         transition: height 0.75s;
         display: block;
-        border-bottom: 1px solid white;
     }
 
     .skills div#title-photo {
         position: relative;
-        background-color: rgba(255, 255, 0, 0.708);
+        background-color: rgba(255, 255, 0, 0.852);
         height: 350px;
         transition: height 0.75s;
         display: block;
-        border-bottom: 1px solid white;
     }
 
     div #title-photo::before {
         content: "";
-        background: url("https://picsum.photos/400/401"); 
+        background: url("https://picsum.photos/401/400"); 
         background-size: cover;
         position: absolute;
         top: 0px;
@@ -129,9 +127,17 @@ a:hover {
         background-color: rgba(165, 42, 42, 0.386);
     }
 
+    #experience {
+        background-color: rgba(0, 128, 0, 0.345);
+    }
+
+    #skills {
+        background-color: rgba(255, 255, 0, 0.407);
+    }
+    
     #parcours::before {
         content: "";
-        background: url("https://picsum.photos/400/401"); 
+        background: url("https://picsum.photos/401/401"); 
         background-size: cover;
         position: absolute;
         top: 0px;
@@ -155,7 +161,7 @@ a:hover {
 
     #skills::before {
         content: "";
-        background: url("https://picsum.photos/400/401"); 
+        background: url("https://picsum.photos/400/400"); 
         background-size: cover;
         position: absolute;
         top: 0px;
