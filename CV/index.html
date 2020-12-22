@@ -9,19 +9,33 @@
     </head>
     <body>
         <header>
-            <div class="btn-group" role="group" aria-label="Navigation buttons">
-                <a class="btn btn-skills" href="#block_3" role="button">Mes compétences</a>
-                <a class="btn btn-experience" href="#block_2" role="button">Mon expérience</a>
-                <a class="btn btn-parkour" href="#block_1" role="button">Mon parcours</a>
+            <a href="#" onclick="event.preventDefault()">
+                <div id="navbar-left">
+                    <img src="icons/navbar.png" alt="none">
+                </div>
+            </a>
+            <div class="navbar">
+                <ul>
+                    <li>
+                        <a href="#anchor_parcours">Mon parcours</a>
+                    </li>
+                    <li>
+                        <a href="#experience">Mon expérience</a>
+                    </li>   
+                    <li>
+                        <a href="#skills">Mes compétences</a>
+                    </li>
+                </ul>
             </div>
         </header>
         <h1 id="titre">Titre professionnel Développeur Web / Web Mobile</h1>
         <div id="img-block">
-            <a href="../HTML_3-liens/Image/image.jpg">phot cv</a>
+            <a href="../HTML_3-liens/Image/image.jpg"><img src="../HTML_3-liens/Image/image.jpg" class="rounded" alt="no photo!" /></a>
         </div>
         <h2>Leborgne Bernard</h2>
         <div class="container col-xs-12">             
             <div class="row">
+                <div id="anchor_parkour"></div>
                 <div class="container parkour" >
                     <a href="#" onclick="event.preventDefault()" id="block_1">
                         <div class="title-photo">
