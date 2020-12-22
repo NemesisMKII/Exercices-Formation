@@ -80,7 +80,7 @@ a:hover {
         text-align: center;
     }
 
-    .parkour div#title-photo {
+    .parkour div.title-photo {
         position: relative;
         background-color: rgba(165, 42, 42, 0.859);
         height: 350px;
@@ -88,7 +88,7 @@ a:hover {
         display: block;
     }
 
-    .experience div#title-photo {
+    .experience div.title-photo {
         position: relative;
         background-color: rgba(0, 128, 0, 0.852);
         height: 350px;
@@ -96,7 +96,7 @@ a:hover {
         display: block;
     }
 
-    .skills div#title-photo {
+    .skills div.title-photo {
         position: relative;
         background-color: rgba(255, 255, 0, 0.852);
         height: 350px;
@@ -104,7 +104,7 @@ a:hover {
         display: block;
     }
 
-    div #title-photo::before {
+    div .title-photo::before {
         content: "";
         background: url("https://picsum.photos/401/400"); 
         background-size: cover;
@@ -116,15 +116,15 @@ a:hover {
         opacity: 0.15;
     }
 
-    div a#block_1:focus #title-photo, 
-    div a#block_2:focus #title-photo,
-    div a#block_3:focus #title-photo {
+    div a#block_1:focus .title-photo, 
+    div a#block_2:focus .title-photo,
+    div a#block_3:focus .title-photo {
         height: 65px;
     }
 
-    div a#block_1:focus + section#parcours, 
-    div a#block_2:focus + section#experience, 
-    div a#block_3:focus + section#skills { 
+    div a#block_1:focus + div#parcours, 
+    div a#block_2:focus + div#experience, 
+    div a#block_3:focus + div#skills { 
         height: 350px;
         opacity: 100;
     }
