@@ -66,9 +66,26 @@ a:hover {
         text-align: center;
     }
 
-    div #title-photo {
+    .parkour div#title-photo {
         position: relative;
-        background-color: rgba(165, 42, 42, 0.708);
+        background-color: rgba(165, 42, 42, 0.859);
+        height: 350px;
+        transition: height 0.75s;
+        display: block;
+    }
+
+    .experience div#title-photo {
+        position: relative;
+        background-color: rgba(0, 128, 0, 0.701);
+        height: 350px;
+        transition: height 0.75s;
+        display: block;
+        border-bottom: 1px solid white;
+    }
+
+    .skills div#title-photo {
+        position: relative;
+        background-color: rgba(255, 255, 0, 0.708);
         height: 350px;
         transition: height 0.75s;
         display: block;
@@ -95,17 +112,57 @@ a:hover {
 
     div a#block_1:focus + section#parcours, 
     div a#block_2:focus + section#experience, 
-    div a#block_3:focus + section#skills {
-        display: block;
+    div a#block_3:focus + section#skills { 
         height: 350px;
-        opacity: 100%;
+        opacity: 100;
     }
 
-    section#parcours, #experience, #skills {
+    #parcours, #experience, #skills {
+        position: relative;
         overflow: hidden;
         height: 0;
         opacity: 0;
         transition: height 0.75s, opacity 1s;
+    }
+
+    #parcours {
+        background-color: rgba(165, 42, 42, 0.386);
+    }
+
+    #parcours::before {
+        content: "";
+        background: url("https://picsum.photos/400/401"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.15
+    }
+
+    #experience::before {
+        content: "";
+        background: url("https://picsum.photos/400/401"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.15
+    }
+
+    #skills::before {
+        content: "";
+        background: url("https://picsum.photos/400/401"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.15
     }
 
 }
