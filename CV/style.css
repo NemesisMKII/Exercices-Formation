@@ -23,7 +23,6 @@ ul {
 .container {
     padding: 0;
     margin: 0;
-    width: 100%;
 }
 
 .container-md {
@@ -39,7 +38,7 @@ a:hover {
     color: black;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 575px) {
     header {
         height: 55px;
     }
@@ -240,6 +239,7 @@ a:hover {
     body {
         margin-top: 70px;
     }
+
     header {
         height: 55px;
         border-bottom: 1px solid black;
@@ -324,6 +324,7 @@ a:hover {
 
     h3 {
         text-align: center;
+        font-size: 1.2rem;
     }
 
     div .title-photo::before {
@@ -335,41 +336,126 @@ a:hover {
         right: 0px;
         bottom: 0px;
         left: 0px;
-        opacity: 0.15;
+        opacity: 0.20;
+        max-width: 100%;
+        transition: max-width 1s;
     }
 
+    .parkour {
+        position: relative;
+        overflow: hidden;
+    }
+    
     .parkour div.title-photo {
-        position: relative;
         background-color: rgba(165, 42, 42, 0.859);
         height: 350px;
-        transition: height 0.75s, padding-top 0.78s;
-        display: block;
+        display: inline-block;
         padding-top: 150px;
-        flex-shrink: 1;
-    }
-
-    .experience div.title-photo {
-        position: relative;
-        background-color: rgba(165, 42, 42, 0.859);
-        height: 350px;
-        transition: height 0.75s, padding-top 0.78s;
-        display: block;
-        padding-top: 150px;
-    }
-
-    .skills div.title-photo {
-        position: relative;
-        background-color: rgba(165, 42, 42, 0.859);
-        height: 350px;
-        transition: height 0.75s, padding-top 0.78s;
-        display: block;
-        padding-top: 150px;
+        min-width: 100%;
+        max-width: 640px;
+        transition: width 1s, min-width 1s;
+        z-index: 1;
+        border: 1px solid black;
     }
 
     div#parcours {
         height: 350px;
-        width: 10px;
+        position: absolute;
+        display: inline-block;
+        width: 75.5%;
+        white-space: nowrap;
         overflow: hidden;
+        transition: width 0.5s;
+        padding-top: 3.5%;
+        font-size: 0.9rem;
+        background-color: rgba(165, 42, 42, 0.503);
+    }
+
+    .parkour a#block_1:focus .title-photo {
+        min-width: 25.5%;
+    }
+
+    .parkour a#block_1:focus .title-photo::before {
+        min-width: 25.5%;
+        max-width: 25.5%;
+    }
+
+    .experience {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .experience div.title-photo {
+        background-color: rgba(0, 128, 0, 0.852);
+        height: 350px;
+        display: inline-block;
+        padding-top: 150px;
+        min-width: 100%;
+        max-width: 640px;
+        transition: width 1s, min-width 1s;
+        z-index: 1;
+        border: 1px solid black;
+    }
+
+    div#experience {
+        height: 350px;
+        position: absolute;
+        display: inline-block;
+        width: 75.5%;
+        white-space: nowrap;
+        overflow: hidden;
+        transition: width 0.5s;
+        padding-top: 3.5%;
+        font-size: 0.9rem;
+        background-color: rgba(0, 128, 0, 0.496);
+    }
+
+    .experience a#block_2:focus .title-photo {
+        min-width: 25.5%;
+    }
+
+    .experience a#block_2:focus .title-photo::before {
+        min-width: 25.5%;
+        max-width: 25.5%;
+    }
+
+    .skills {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .skills div.title-photo {
+        background-color: rgba(255, 255, 0, 0.852);
+        height: 350px;
+        display: inline-block;
+        padding-top: 150px;
+        min-width: 100%;
+        max-width: 640px;
+        transition: width 1s, min-width 1s;
+        z-index: 1;
+        border: 1px solid black;
+    }
+
+    div#skills {
+        height: 350px;
+        position: absolute;
+        display: inline-block;
+        width: 75.5%;
+        white-space: nowrap;
+        overflow: hidden;
+        transition: width 0.5s;
+        padding-top: 3.5%;
+        font-size: 0.9rem;
+        background-color: rgba(255, 255, 0, 0.53);
+    }
+
+    .skills a#block_3:focus .title-photo {
+        min-width: 25.5%;
+    }
+
+    .skills a#block_3:focus .title-photo::before {
+        min-width: 25.5%;
+        max-width: 25.5%;
     }
 
     .col-sm-8 {
