@@ -248,11 +248,7 @@ a:hover {
     header #navbar-left {
         display: none;
     }
-    
-    .navbar {
-        display: inline;
-    }
-
+     
     #img-block img {
         display: block;
         height: 220px;
@@ -268,6 +264,7 @@ a:hover {
     }
 
     .navbar {
+        display: inline;
         position: relative;
         padding: 0;
     }
@@ -391,7 +388,7 @@ a:hover {
         display: inline-block;
         padding-top: 150px;
         min-width: 100%;
-        max-width: 640px;
+        max-width: 100%;
         transition: width 1s, min-width 1s;
         z-index: 1;
         border: 1px solid black;
@@ -402,7 +399,6 @@ a:hover {
         position: absolute;
         display: inline-block;
         width: 75.5%;
-        white-space: nowrap;
         overflow: hidden;
         transition: width 0.5s;
         padding-top: 3.5%;
@@ -464,5 +460,155 @@ a:hover {
 
     .col-sm-2 {
         width: 20%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    header #navbar-left {
+        display: none;
+    }
+
+    header {
+        height: 60px;
+        border-bottom: 1px solid black;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .navbar ul {
+        display: flex;
+    }
+
+    .navbar ul li {
+        text-align: center;
+    }
+
+    body {
+        margin-top: 75px;
+    }
+
+    #img-block img {
+        display: block;
+        height: 220px;
+        width: 175px;
+        margin: 0 auto;
+    }
+
+    #img-block {
+        display: block;
+        height: 220px;
+        width: 175px;
+        margin: 0 auto;
+    }
+    
+    .col-md-12 {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .parkour div.title-photo {
+        background-color: rgba(165, 42, 42, 0.859);
+        height: 350px;
+        padding-top: 150px;
+        width: 60%;
+        z-index: 1;
+        border: 1px solid white;
+        float: left;
+        transition: width 1s, margin-left 1s;
+        margin-left: 5%;
+    }
+
+    div#parcours {
+        height: 350px;
+        width: 30%;
+        float: right;   
+        border: 1px solid white;
+        background-color: rgba(165, 42, 42, 0.503);
+        transition: width 1s, margin-right 1s;
+        margin-right: 5%;
+    }
+
+    .parkour:hover > a div.title-photo, .skills:hover > a div.title-photo {
+        width: 30%;
+        margin-left: 0;
+    }
+
+    .parkour:hover > div#parcours, .skills:hover > div#skills {
+        width: 70%;
+        margin-right: 0;
+    }
+
+    div#parcours ul, div#experience ul, div#skills ul, div#skills h4 {
+        opacity: 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .experience div.title-photo {
+        background-color: rgba(0, 128, 0, 0.852);
+        height: 350px;
+        padding-top: 150px;
+        width: 60%;
+        z-index: 1;
+        border: 1px solid white;
+        float: right;
+        transition: width 1s, margin-right 1s;
+        margin-right: 5%;
+    }
+
+    div#experience {
+        height: 350px;
+        float: left;   
+        width: 30%;
+        border: 1px solid white;
+        transition: width 1s, margin-left 1s;
+        margin-left: 5%;
+        background-color: rgba(0, 128, 0, 0.496);
+    }
+
+    .experience:hover > a div.title-photo {
+        width: 30%;
+        margin-right: 0;
+    }
+
+    .experience:hover > div#experience {
+        width: 70%;
+        margin-left: 0;
+    }
+    .skills div.title-photo {
+        background-color: rgba(255, 255, 0, 0.852);
+        height: 350px;
+        padding-top: 150px;
+        width: 60%;
+        max-width: 70%;
+        min-width: 30%;
+        z-index: 1;
+        border: 1px solid white;
+        float: left;
+        transition: width 1s, margin-left 1s;
+        margin-left: 5%;
+    }
+
+    div#skills {
+        height: 350px;
+        min-width: 30%;
+        max-width: 70%;
+        width: 30%;
+        float: right;   
+        border: 1px solid white;
+        transition: width 1s, margin-right 1s;
+        margin-right: 5%;
+        background-color: rgba(255, 255, 0, 0.53);
     }
 }
