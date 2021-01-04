@@ -1,0 +1,169 @@
+Exercice 1
+
+Avec TANT QUE
+
+Programme calcul
+
+variable
+	N: Entier // Déclaration de la variable N en entier
+
+fonction lireEntier():
+	x: choix
+	retourner x
+
+début
+	N := lireEntier()
+	i := 0
+	resultat := 0  // Résultat
+	
+	TANT QUE i <= N:
+		y += i
+		i += 1
+
+écrire ("le résultat avec tantque est: ", resultat)
+
+=================================================
+Avec REPETER
+
+Programme calcul
+
+variable
+	N: Entier // Déclaratioin de la variable N en entier
+
+fonction lireEntier():
+	x: choix
+	retourner x
+
+début
+	N := lireEntier()
+	i := 0
+	resultat := 0 // Résultat
+
+	REPETER
+		resultat += i
+		i += 1
+
+	JUSQUA i == N
+
+écrire ("le résultat avec tantque est: ", resultat)
+
+===================================================
+Avec POUR
+
+Programme calcul
+
+variable
+	N: Entier // Déclaratioin de la variable N en entier
+
+fonction lireEntier():
+	x: choix
+	retourner x
+
+début
+	N := lireEntier()
+	resultat := 0 // Résultat
+
+	POUR i allant de 0 à N:
+		resultat += i
+		i += 1
+
+écrire ("le résultat avec tantque est: ", resultat)
+=====================================================
+
+EXERCICE 2
+
+Avec TANT QUE
+
+Programme calcul
+
+variable
+	N: Entier // Déclaratiion de la variable N en entier
+
+fonction lireEntier():
+	x: choix
+	retourner x
+
+début
+	N := lireEntier()
+	i := 1
+	resultat := 1 // Résultat
+
+	TANT QUE i <= N:
+		resultat * i
+		i += 1
+
+écrire (« La factorielle de », X, « avec tantque est : », resultat)
+=========================================================
+Avec REPETER
+
+Programme calcul
+
+variable
+	N: Entier // Déclaratiion de la variable N en entier
+
+fonction lireEntier():
+	x: choix
+	retourner x
+
+début
+	N := lireEntier()
+	i := 1
+	resultat := 1 // Résultat
+
+	REPETER
+		resultat * i
+		i += 1
+
+	JUSQUA i > N
+
+écrire (« La factorielle de », X, « avec répéter est : », resultat)
+=========================================================
+EXERCICE 3
+
+variable
+	a: entier
+	b: entier
+	c: entier
+
+début
+	a := lireEntier()
+	b := lireEntier()
+	c := lireEntier()
+	D = (b*b) - 4*(a*c)
+
+	SI a == 0:
+		écrire("Erreur")
+	SINON
+		SI D == 0:
+			écrire("Une solution possible.)
+			solution = -(b/(2*a))
+			écrire("la solution est: ", solution)
+		SI D > 0:
+			écrire("Deux solutions possibles)
+			solution_1 = (-b-racine(D))/(2*a))
+			solution_2 = (-b+racine(D))/(2*a))
+		SINON:
+			écrire("Aucune solution possible")
+==============================================================
+EXERCICE 4
+
+variable
+	X := Entier
+	Y := Puissance à appliquer sur l'entier
+	resultat := entier issu de X élevé à la puissance Y
+
+fonction puissance (entier x, entier y):
+	i := 1
+	resultat = 1
+
+	TANT QUE i <= Y:
+		resultat * X
+		i += 1
+	retourner resultat
+
+début
+	X := lireEntier()
+	Y := lireEntier()
+
+écrire ("résultat: ", puissance(x, y)
+
