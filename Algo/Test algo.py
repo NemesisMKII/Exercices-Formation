@@ -6,7 +6,7 @@ def lireEntier():
 
 def rechercheEntier(X, TabEntiers):
     debut = 0
-    fin = int(len(TabEntiers))
+    fin = int(len(TabEntiers)-1)
     milieu = int((debut + fin)/2)
     Trouve = False
     while Trouve == False or debut <= fin:
@@ -16,11 +16,11 @@ def rechercheEntier(X, TabEntiers):
         if debut == fin and X != TabEntiers[fin]:
             return -1
         else:
-            milieu = int((debut + fin)/2)
-            if X >= TabEntiers[milieu]:
+            if X > TabEntiers[milieu]:
                 debut = milieu + 1
-            if X <= TabEntiers[milieu]:
+            if X < TabEntiers[milieu]:
                 fin = milieu - 1
+        milieu = int((debut + fin)/2)
 
 TabEntiers = (3, 5, 27, 37, 65, 85, 93, 99, 123, 139)   
 X = lireEntier()
