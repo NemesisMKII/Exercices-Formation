@@ -1,10 +1,10 @@
-Exercice 1
+﻿Exercice 1
 
 Avec TANT QUE
 
 Programme calcul
 
-variable
+variable	
 	N: Entier // Déclaration de la variable N en entier
 
 fonction lireEntier():
@@ -28,7 +28,7 @@ Avec REPETER
 Programme calcul
 
 variable
-	N: Entier // Déclaratioin de la variable N en entier
+	N: Entier // Déclaration de la variable N en entier
 
 fonction lireEntier():
 	x: choix
@@ -120,10 +120,13 @@ début
 =========================================================
 EXERCICE 3
 
+Programme EquationSecondDegre
 variable
 	a: entier
 	b: entier
 	c: entier
+	D: réel
+	resultat: réel
 
 début
 	a := lireEntier()
@@ -144,6 +147,8 @@ début
 			solution_2 = (-b+racine(D))/(2*a))
 		SINON:
 			écrire("Aucune solution possible")
+		FINSI
+	FINSI	
 ==============================================================
 EXERCICE 4
 
@@ -165,5 +170,39 @@ début
 	X := lireEntier()
 	Y := lireEntier()
 
-écrire ("résultat: ", puissance(x, y)
+écrire ("résultat: ", puissance(x, y))
+=============================================================
+EXERCICE 5 
+
+Programme RechercheDichotomique
+
+variable
+	TabEntiers: Tableau d'entiers
+	X: Entier
+	Y: Entier
+
+fonction rechercheEntier(X, TabEntiers):
+	longueur = longueur de (TabEntiers)
+	milieu = longueur de (TabEntier) / 2
+	Si X n'est pas dans le tableau:
+		retourner -1
+	SINON
+		SI X < TabEntiers[milieu]:
+			POUR Y dans les bornes (0, milieu, Y+1):
+				SI X == TabEntiers[Y]
+					retourner Y
+		SI X > TabEntiers[milieu]:
+			POUR Y dans les bornes (TabEntiers[milieu], TabEntier[longueur], Y+1):
+				SI X == TabEntiers[Y]
+					retourner Y
+
+début
+	TabEntiers := [3, 5, 27, 37, 65, 85, 93, 99, 123, 139]
+	X := lireEntier()
+	Y := rechercheEntier(X, TabEntiers)
+
+SI Y == -1:
+	écrire(X, " ne se trouve pa dans le tableau.)
+SINON
+	écrire(X, " se trouve au rang ", Y, " dans le tableau.")
 
