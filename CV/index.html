@@ -2,124 +2,147 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Leborgne Bernard</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
         <header>
-            <a href="#skills">
-                <nav>
-                        <ul>
-                            <li>Mes compétences</li>                
-                        </ul>
-                </nav>
+            <a href="#" onclick="event.preventDefault()">
+                <div id="navbar-left">
+                    <img src="icons/navbar.png" alt="none">
+                </div>
             </a>
-            <a href="#experience">
-                <nav>
-                    <ul>
-                        <li>Mon expérience</li>
-                    </ul>
-                </nav>
-            </a>
-            <a href="#parcours">
-                <nav>
-                    <ul>
-                        <li>Mon parcours</li>
-                    </ul>
-                </nav>
-            </a>
+            <div class="navbar">
+                <ul>
+                    <li>
+                        <a href="#anchor_parkour">Mon parcours</a>
+                    </li>
+                    <li>
+                        <a href="#experience">Mon expérience</a>
+                    </li>   
+                    <li>
+                        <a href="#skills">Mes compétences</a>
+                    </li>
+                </ul>
+            </div>
         </header>
         <h1 id="titre">Titre professionnel Développeur Web / Web Mobile</h1>
         <div id="img-block">
-            <a href="../HTML_3-liens/Image/image.jpg"><img src="../HTML_3-liens/Image/image.jpg" alt="photo_cv"/></a>
+            <a href="../HTML_3-liens/Image/image.jpg"><img src="../HTML_3-liens/Image/image.jpg" class="rounded" alt="no photo!" /></a>
         </div>
         <h2>Leborgne Bernard</h2>
-        <div class="grid">
-            <section class="parkour" id="parcours">
-                <div id="parkour">
-                    <a href="#"><h3>Mon parcours<span><img src="./Images/parkour.gif" alt="parkour!"/></span></h3></a>
-                </div>
-                <ul>
-                    <li>De Janvier 2019 à Août 2019
+        <div class="container-md col-xs-12 col-sm-10 col-md-12">             
+            <div class="row">
+                <div class="container experience">
+                    <a href="#" onclick="event.preventDefault()" id="block_2">
+                        <div class="title-photo">
+                            <h3>Expérience</h3>
+                        </div>
+                    </a>
+                    <div id="experience">
+                        <h3 id="myexp">Mon expérience</h3>
                         <ul>
-                            <li><strong>Volontaire "Chaîne des Parcs"</strong></li>
-                            <li>Unis Cité Lens Lens, France</li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li>De Septembre 2015 à Juin 2018
-                        <ul>
-                            <li><strong>License informatique</strong></li>
-                            <li>Faculté des Sciences Jean Perrin Lens, France
+                            <li>De Janvier 2019 à Août 2019
                                 <ul>
-                                    <li><em>Diplôme non obtenu.</em></li>
+                                    <li><strong>Service civique</strong></li>
+                                    <li>Unis Cité Lens Lens, France</li>
+                                    <li>Service civique réalisé au sein de la mission "La Chaîne des Parcs".
+                                        Création et réalisation d'animations se passant dans le parc d'Olhain, 
+                                        Participation à divers événements au sein de la Chaîne des Parcs, ainsi qu'à Odyssée 2019 avec Euralens.</li>
                                 </ul>
                             </li>
                         </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li>2015
                         <ul>
-                            <li><strong>Baccalauréat Scientifique</strong></li>
-                            <li>Lycée Louis Blaringhem Béthune,France</li>
+                            <li>Septembre 2015
+                                <ul>
+                                    <li><strong>Distribution de tracts publicitaires</strong></li>
+                                    <li>4 Murs Bruay-La-Buissière, France</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li><strong>Brevet des Collèges</strong></li>
-                    <li>Collège George Sand Béthune, France</li>
-                </ul>
-            </section>
-            <div class="parkour-right">
-                <img src="https://picsum.photos/1000/1000" alt="photo"/>
-            </div>
-            <section class="experience" id="experience">
-                <h3>Mon expérience</h3>
-                <ul>
-                    <li>De Janvier 2019 à Août 2019
+                    </div>
+                </div>
+                <div class="container skills">
+                    <a href="#" onclick="event.preventDefault()" id="block_3">
+                        <div class="title-photo">
+                            <h3>Compétences</h3>
+                        </div>
+                    </a>
+                    <div id="skills">
+                        <h3 id="myskills">Mes compétences</h3>
                         <ul>
-                            <li><strong>Service civique</strong></li>
-                            <li>Unis Cité Lens Lens, France</li>
-                            <li>Service civique réalisé au sein de la mission "La Chaîne des Parcs".
-                                Création et réalisation d'animations se passant dans le parc d'Olhain, 
-                                Participation à divers événements au sein de la Chaîne des Parcs, ainsi qu'à Odyssée 2019 avec Euralens.</li>
+                            <li>Travail D'équipe</li>
+                            <li>Capacité d'adaptation</li>
                         </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li>Septembre 2015
+                        <h4>Informatique</h4>
                         <ul>
-                            <li>D<strong>Distribution de tracts publicitaires</strong></li>
-                            <li>4 Murs Bruay-La-Buissière, France</li>
+                            <li>Python</li>
+                            <li>HTML/CSS</li>
+                            <li>Github
+                                <ul>
+                                    <li>Maîtrise basique de Git/Github</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                </ul>
-            </section>
-            <div class="experience-left">
-                <img src="https://picsum.photos/200/300" alt="photo"/>
-            </div>
-            <section class="skills" id="skills">
-                <h3>Mes compétences</h3>
-                <ul>
-                    <li>Travail D'équipe</li>
-                    <li>Capacité d'adaptation</li>
-                </ul>
-                <h4>Informatiue</h4>
-                <ul>
-                    <li>Python</li>
-                    <li>HTML/CSS</li>
-                    <li>Github
-                        <ul>
-                            <li>Maîtrise basique de Git/Github</li>
+                    </div>
+                </div>
+                <div id="anchor_parkour"></div>
+                <div class="container parkour" >
+                    <a href="#" onclick="event.preventDefault()" id="block_1">
+                        <div class="title-photo">
+                            <h3>Parcours</h3>
+                        </div>
+                    </a>
+                    <div class="col-sm-2" id="parcours">
+                        <h3 id="mypark">Mon parcours</h3>
+                        <ul id="md-1">
+                            <li>De Janvier 2019 à Août 2019
+                                <ul>
+                                    <li><strong>Volontaire "Chaîne des Parcs"</strong></li>
+                                    <li>Unis Cité Lens Lens, France</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                </ul>
-            </section>
-            <div class="skills-right">
-                <img src="https://picsum.photos/400/500" alt="photo"/>
+                        <ul id="md-2">
+                            <li>De Septembre 2015 à Juin 2018
+                                <ul>
+                                    <li><strong>Licence informatique</strong></li>
+                                    <li>Faculté des Sciences Jean Perrin Lens, France
+                                        <ul>
+                                            <li><em>Diplôme non obtenu.</em></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul id="md-3">
+                            <li>2015
+                                <ul>
+                                    <li><strong>Baccalauréat Scientifique</strong></li>
+                                    <li>Lycée Louis Blaringhem Béthune,France</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul id="md-4">
+                            <li><strong>Brevet des Collèges</strong></li>
+                            <li>Collège George Sand Béthune, France</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
+        <footer>
+            <h2>Contact</h2>
+            <form method="get" action="index.html" class="col-xs-12">
+                <input name="Prenom" placeholder="Prénom" class="col-xs-5">
+                <input name="Nom" placeholder="Nom" class="col-xs-5">
+                <input name="mail" placeholder="E-mail" class="col-xs-12">
+                <input name="Objet" placeholder="Objet du message" class="col-xs-12">
+                <textarea name="message" placeholder="Votre message..." class="col-xs-12"></textarea>
+                <input type="submit"/>
+            </form>
+        </footer>
     </body>
 </html>

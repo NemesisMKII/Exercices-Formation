@@ -3,194 +3,844 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
-}
 
-.grid {
-    display: grid;
-    grid-template-rows: 33% 33% 33%;
-    grid-template-columns: 15% 17% 17% 17% 15%;
-    max-width: 1920px;
-    max-height: 1080px;
-    justify-content: center;
-    color: blanchedalmond;
 }
-
 header {
+    background-color: rgb(148, 113, 92);
     position: fixed;
-    background-color: rgb(151, 105, 78);
     width: 100%;
-    height: 5%;
-    z-index: 10;
-    border-bottom: 1px solid black;
-}
-
-nav {
-    float: right;
-    background-color: rgb(151, 105, 78);
-    height: 100%;
-    margin-right: 1%;
-    border-right: 1px solid black;
-    border-left: 1px solid black;
-}
-
-nav:hover {
-    background-color: blanchedalmond;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0 20px;
-    text-align: center;
-    color: black;
-    font-weight: bold;
-}
-
-h1 {
-    text-align: center;
-    padding-top: 6%;
-    margin: 0;
-}
-
-h2 {
-    text-align: center;
-    margin: 0;
-}
-.parkour {
-    grid-row: 1 / 2;
-    grid-column: 1 / 4;
-    border: 1px solid black;
-    background-color: rgba(165, 42, 42, 0.568);
-    max-height: 100%;
-    position: relative;
-    padding-left: 5%;
-}
-
-.parkour::before {
-    content: "";
-    background: url("https://picsum.photos/400/401"); 
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.15;
-}
-
-.parkour ul {
-    display: block;
-    align-self: center;
-}
-
-.parkour-right {
-    grid-row: 1 / 2;
-    grid-column: 4 / 6;
-    background-color:rgba(0, 0, 0, 0.475);
-    border: 1px solid black;
-}
-
-.parkour-right img {
-    max-width: 33%;
-    height: auto;
-}
-
-.experience {
-    grid-row: 2 / 3;
-    grid-column: 3 / 6;
-    border: 1px solid black;
-    background-color: rgba(0, 128, 0, 0.407);
-    max-height: 100%;
-    position: relative;
-    padding-left: 5%;
-}
-
-.experience::before {
-    content: "";
-    background: url("https://picsum.photos/803/801"); 
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.25;
-}
-
-.experience-left {
-    grid-row: 2 / 3;
-    grid-column: 1 / 3;
-    background-color: rgba(0, 0, 0, 0.475);
-    border: 1px solid black;
-    max-height: 100%;
-}
-
-.experience-left img {
-    width: 100%;
-    max-height: 100%;
-}
-
-.skills {
-    grid-row: 3 / 4;
-    grid-column: 1 / 4;
-    border: 1px solid black;
-    background-color: rgba(255, 255, 0, 0.397);
-    max-height: 100%;
-    position: relative;
-    padding-left: 5%;
-    color: rgb(248, 0, 0);
-}
-
-.skills::before {
-    content: "";
-    background: url("https://picsum.photos/801/801"); 
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.20;
-}
-
-.skills-right {
-    grid-row: 3 / 4;
-    grid-column: 4 / 6;
-    background-color: rgba(0, 0, 0, 0.475);
-    border: 1px solid black;
-    max-height: 100%;
-}
-
-.skills-right img {
-    width: 100%;
-    max-height: 100%;
-}
-
-#img-block img {
-    display: block;
-    margin: auto;
-    margin-top: 2%;
-    margin-bottom: 1%;
-    width: 300px;
-    height: 300px;
-    border: 2px solid black;
-}
-
-#parkour img {
-    width: 200px;
-    height: 150px;
-}
-
-#parkour a {
-    position: relative;
-    text-decoration: none;
-    color: blanchedalmond;
-}
-#parkour a span {
-    position: absolute;
+    top: 0;
     z-index: 99;
+}
+ul {
+    list-style-type: none;
+}
+
+.row {
+    margin: 0;
+}
+
+.container {
+    padding: 0;
+    margin: 0;
+}
+
+.container-md {
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+#myexp, #mypark, #myskills {
     display: none;
 }
 
-#parkour a:hover span {
-    display: inline;
+input[name] {
+    width: 100%;
+    margin-bottom: 2.5%!important;
+}
+
+input[name="Prenom"], input[name="Nom"] {
+    width: 45%;
+}
+
+input[type] {
+    margin-top: 5%;
+}
+
+@media screen and (max-width: 575px) {
+    h2 {
+        text-align: center;
+    }
+    
+    header {
+        height: 55px;
+    }
+
+    #navbar-left {
+        height: 100%;
+        width: 12%;
+        float: left;
+    }
+
+    #navbar-left img {
+        display: block;
+        width: 45px;
+        height: 45px;
+        margin: 5px auto;
+    }
+    header a:focus + .navbar {
+        width: 250px;
+        border-right: 2px solid black;
+    }
+    #navabar-left div {
+        background-color: white;
+        position: absolute;
+        width: 50%;
+        height: 100%;
+    }
+
+    div.navbar {
+        position: absolute;
+        width: 0px;
+        height: 1000px;
+        top: 55px;
+        padding: 0;
+        z-index: 10;
+        transition: width 0.2s;
+        background-color: rgb(158 140 119 / 91%);
+    }
+
+    .navbar ul {
+        position: absolute;
+        margin: 0 25px;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .navbar ul li {
+        font-size: 1.5rem; 
+        line-height: 3rem;
+        width: 100%;
+        z-index: 99;
+    }
+
+    div.navbar ul li:hover a {
+        color: white;
+    }
+
+    #img-block img {
+        display: block;
+        height: 220px;
+        width: 175px;
+        margin: 0 auto;
+    }
+
+    #img-block {
+        display: block;
+        height: 220px;
+        width: 175px;
+        margin: 0 auto;
+    }
+
+    body {
+        margin-top: 60px;
+    }
+    .col-xs-12 {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .col-xs-5 {
+        width: 41.66%;
+    }
+
+    .col-xs-10 {
+        width: 83.33%;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .parkour div.title-photo {
+        position: relative;
+        background-color: rgba(165, 42, 42, 0.859);
+        height: 350px;
+        transition: height 0.75s, padding-top 0.78s;
+        display: block;
+        padding-top: 150px;
+    }
+
+    .experience div.title-photo {
+        position: relative;
+        background-color: rgba(0, 128, 0, 0.852);
+        height: 350px;
+        transition: height 0.75s, padding-top 0.78s;
+        display: block;
+        padding-top: 150px;
+    }
+
+    .skills div.title-photo {
+        position: relative;
+        background-color: rgba(255, 255, 0, 0.852);
+        height: 350px;
+        transition: height 0.75s, padding-top 0.78s;
+        display: block;
+        padding-top: 150px;
+    }
+
+    div .title-photo::before {
+        content: "";
+        background: url("https://picsum.photos/401/400"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.15;
+    }
+
+    div a#block_1:focus .title-photo, 
+    div a#block_2:focus .title-photo,
+    div a#block_3:focus .title-photo {
+        height: 65px;
+        padding-top: 15px;
+    }
+
+    div a#block_1:focus + div#parcours, 
+    div a#block_2:focus + div#experience, 
+    div a#block_3:focus + div#skills { 
+        height: 350px;
+        opacity: 100;
+    }
+
+    #parcours, #experience, #skills {
+        position: relative;
+        overflow: hidden;
+        height: 0;
+        opacity: 0;
+        transition: height 0.75s, opacity 1s;
+    }
+
+    #parcours {
+        background-color: rgba(165, 42, 42, 0.503);
+    }
+
+    #experience {
+        background-color: rgba(0, 128, 0, 0.496);
+    }
+
+    #skills {
+        background-color: rgba(255, 255, 0, 0.53);
+    }
+    
+    #parcours::before {
+        content: "";
+        background: url("https://picsum.photos/401/401"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;    
+        left: 0px;
+        opacity: 0.15
+    }
+
+    #experience::before {
+        content: "";
+        background: url("https://picsum.photos/400/401"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.15;
+    }
+
+    #skills::before {
+        content: "";
+        background: url("https://picsum.photos/400/400"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.15;
+    }
+
+    footer {
+        background-color: rgb(46 42 42);
+        color: blanchedalmond;
+        text-align: center;
+        padding: 0 8.33%;
+        height: 45%;
+        padding-top: 2%;
+    }
+    
+    footer h2 {
+        margin-bottom: 7%;
+    }
+    form {
+        text-align: center;
+    }
+
+    input[name="Prenom"] {
+        margin-right: 8.8%;
+    }
+    
+    textarea {
+        margin-top: 5%;
+        height: 100px;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    body {
+        margin-top: 70px;
+    }
+
+    header {
+        height: 55px;
+        border-bottom: 1px solid black;
+    }
+
+    header #navbar-left {
+        display: none;
+    }
+     
+    #img-block img {
+        display: block;
+        height: 220px;
+        width: 175px;
+        margin: 0 auto;
+    }
+
+    #img-block {
+        display: block;
+        height: 220px;
+        width: 175px;
+        margin: 0 auto;
+    }
+
+    .navbar {
+        display: inline;
+        position: relative;
+        padding: 0;
+    }
+
+    .navbar ul {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        line-height: 50px;
+    }
+
+
+    .navbar a {
+        display: block;
+        height: 100%;
+        width: 150px;
+        top: 0; 
+    }
+
+    .navbar ul li a {
+        transition: background-color 0.5s, color 0.3s;
+        text-align: center;
+    }
+
+    .navbar ul li:first-child a:hover, .navbar ul li:first-child a:focus {
+        border: 1px solid black;
+        color: whitesmoke;
+        background-color: tomato;
+    }
+
+    .navbar ul li:nth-child(2) a:hover, .navbar ul li:nth-child(2) a:focus {
+        border: 1px solid black;
+        color: whitesmoke;
+        background-color: teal;
+    }
+
+    .navbar ul li:nth-child(3) a:focus {
+        border: 1px solid black;
+        color: whitesmoke;
+        background-color: violet;
+    }
+    
+    div.col-sm-10 {
+        margin: 0 auto;
+        padding: 0;
+        width: 83.33%;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    div .title-photo::before {
+        content: "";
+        background: url("https://picsum.photos/401/400"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.20;
+        max-width: 100%;
+        transition: max-width 1s;
+    }
+
+    .parkour {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .parkour div.title-photo {
+        background-color: rgba(165, 42, 42, 0.859);
+        height: 350px;
+        display: inline-block;
+        padding-top: 150px;
+        min-width: 100%;
+        max-width: 640px;
+        transition: width 1s, min-width 1s;
+        z-index: 1;
+        border: 1px solid black;
+    }
+
+    div#parcours {
+        height: 350px;
+        position: absolute;
+        display: inline-block;
+        width: 75.5%;
+        white-space: nowrap;
+        overflow: hidden;
+        transition: width 0.5s;
+        padding-top: 3.5%;
+        font-size: 0.9rem;
+        background-color: rgba(165, 42, 42, 0.503);
+    }
+
+    .parkour a#block_1:focus .title-photo {
+        min-width: 25.5%;
+    }
+
+    .parkour a#block_1:focus .title-photo::before {
+        min-width: 25.5%;
+        max-width: 25.5%;
+    }
+
+    .experience {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .experience div.title-photo {
+        background-color: rgba(0, 128, 0, 0.852);
+        height: 350px;
+        display: inline-block;
+        padding-top: 150px;
+        min-width: 100%;
+        max-width: 100%;
+        transition: width 1s, min-width 1s;
+        z-index: 1;
+        border: 1px solid black;
+    }
+
+    div#experience {
+        height: 350px;
+        position: absolute;
+        display: inline-block;
+        width: 75.5%;
+        overflow: hidden;
+        transition: width 0.5s;
+        padding-top: 3.5%;
+        font-size: 0.9rem;
+        background-color: rgba(0, 128, 0, 0.496);
+    }
+
+    .experience a#block_2:focus .title-photo {
+        min-width: 25.5%;
+    }
+
+    .experience a#block_2:focus .title-photo::before {
+        min-width: 25.5%;
+        max-width: 25.5%;
+    }
+
+    .skills {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .skills div.title-photo {
+        background-color: rgba(255, 255, 0, 0.852);
+        height: 350px;
+        display: inline-block;
+        padding-top: 150px;
+        min-width: 100%;
+        max-width: 640px;
+        transition: width 1s, min-width 1s;
+        z-index: 1;
+        border: 1px solid black;
+    }
+
+    div#skills {
+        height: 350px;
+        position: absolute;
+        display: inline-block;
+        width: 75.5%;
+        white-space: nowrap;
+        overflow: hidden;
+        transition: width 0.5s;
+        padding-top: 3.5%;
+        font-size: 0.9rem;
+        background-color: rgba(255, 255, 0, 0.53);
+    }
+
+    .skills a#block_3:focus .title-photo {
+        min-width: 25.5%;
+    }
+
+    .skills a#block_3:focus .title-photo::before {
+        min-width: 25.5%;
+        max-width: 25.5%;
+    }
+
+    .col-sm-8 {
+        width: 80%;
+    }
+
+    .col-sm-2 {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    header #navbar-left {
+        display: none;
+    }
+
+    header {
+        height: 60px;
+        border-bottom: 1px solid black;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .navbar ul {
+        display: flex;
+    }
+
+    .navbar ul li {
+        text-align: center;
+    }
+
+    body {
+        margin-top: 75px;
+    }
+
+    #img-block img {
+        display: block;
+        height: 220px;
+        width: 175px;
+        margin: 0 auto;
+    }
+
+    #img-block {
+        display: block;
+        height: 220px;
+        width: 175px;
+        margin: 0 auto;
+    }
+    
+    .col-md-12 {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    h3 {
+        text-align: center;
+    }
+    
+    div.title-photo h3 {
+        transition: opacity 0.5s;
+    }
+
+    .parkour div.title-photo {
+        background-color: rgba(165, 42, 42, 0.859);
+        height: 350px;
+        padding-top: 150px;
+        width: 60%;
+        z-index: 1;
+        border: 1px solid white;
+        float: left;
+        transition: width 1s, margin-left 1s;
+        margin-left: 5%;
+        position: relative;
+    }
+
+    .parkour div.title-photo::before {
+        content: "";
+        background: url("https://picsum.photos/401/401"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.3;
+        transition: opacity 1s;
+        transition-delay: 0.1s;
+    }
+
+    .parkour:hover div.title-photo::before {
+        opacity: 0;
+    }
+
+    div#parcours {
+        height: 350px;
+        width: 30%;
+        float: right;   
+        border: 1px solid white;
+        background-color: rgba(165, 42, 42, 0.503);
+        transition: width 1s, margin-right 1s;
+        margin-right: 5%;
+        position: relative;
+        padding-top: 55px;
+    }
+
+    div#parcours::before {
+        content: "";
+        background: url("https://picsum.photos/402/400"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0;
+        transition: opacity 1s;
+        transition-delay: 0.1s;
+    }
+
+    .parkour:hover div#parcours::before {
+        opacity: 0.4;
+    }
+
+    div#parcours #md-1, 
+    div#parcours #md-2, 
+    div#parcours #md-3,
+    div#parcours #md-4 {
+        position: absolute;
+        left: 35%;
+        top: 40%;
+        transition: left 1.65s, top 1.65s;
+    }
+
+    .parkour:hover > a div.title-photo, .experience:hover > a div.title-photo {
+        width: 30%;
+        margin-left: 0;
+    }
+
+    .parkour:hover > div#parcours, .experience:hover > div#experience {
+        width: 70%;
+        margin-right: 0;
+    }
+
+    .parkour:hover > div#parcours #md-1 {
+        top: 20%;
+        left: 7%;
+    }
+
+    .parkour:hover > div#parcours #md-2 {
+        top: 19%;
+        left: 50%;
+    }
+
+    .parkour:hover > div#parcours #md-3 {
+        top: 65%;
+        left: 3%;
+    }
+
+    .parkour:hover > div#parcours #md-4 {
+        top: 72%;
+        left: 53%;
+    }
+
+    div#parcours ul, div#experience ul, div#skills ul, div#skills h4 {
+        opacity: 0;
+        overflow: hidden;
+        text-align: center;
+        transition: opacity 0.5s;
+        padding: 0;
+    }
+
+    .experience div.title-photo {
+        background-color: rgba(0, 128, 0, 0.852);
+        height: 350px;
+        padding-top: 150px;
+        width: 60%;
+        z-index: 1;
+        border: 1px solid white;
+        float: left;
+        transition: width 1s, margin-left 1s;
+        margin-left: 5%;
+        position: relative;
+    }
+
+    .experience div.title-photo::before {
+        content: "";
+        position: absolute;
+        background: url("https://picsum.photos/400/400"); 
+        background-size: cover;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.3;
+        transition: opacity 1s;
+    }
+
+    .experience:hover div.title-photo::before {
+        opacity: 0;
+    }
+
+    div#experience {
+        height: 350px;
+        float: right;
+        width: 30%;
+        border: 1px solid white;
+        transition: width 1s, margin-right 1s;
+        margin-right: 5%;
+        background-color: rgba(0, 128, 0, 0.496);
+        padding-top: 45px;
+        position: relative;
+    }
+    
+    div#experience::before {
+        content: "";
+        background: url("https://picsum.photos/401/404"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0;
+        transition: opacity 1s;
+        transition-delay: 0.1s;
+    }
+    .experience:hover > div#experience::before {
+        opacity: 0.35;
+    }
+
+    #myexp, #mypark, #myskills {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 35%;
+        right: 35%;
+        opacity: 0;
+        transition: opacity 0.5s;
+        white-space: nowrap;
+    }
+
+    .skills:hover > a div.title-photo {
+        width: 30%;
+        margin-right: 0;
+    }
+
+    .skills:hover > div#skills {
+        width: 70%;
+        margin-left: 0;
+        padding-top: 65px;
+    }
+
+    .experience:hover > div#experience ul,
+    .experience:hover > div#experience #myexp,
+    .parkour:hover > div#parcours ul, 
+    .parkour:hover > div#parcours #mypark,
+    .skills:hover > div#skills ul, 
+    .skills:hover > div#skills #myskills {
+        opacity: 100%;
+    }
+
+    .experience:hover > a div.title-photo h3,
+    .skills:hover > a div.title-photo h3,
+    .parkour:hover > a div.title-photo h3 {
+        opacity: 0;
+    }
+
+    .skills div.title-photo {
+        background-color: rgba(255, 255, 0, 0.852);
+        height: 350px;
+        padding-top: 150px;
+        width: 60%;
+        max-width: 70%;
+        min-width: 30%;
+        z-index: 1;
+        border: 1px solid white;
+        float: right;
+        transition: width 1s, margin-right 1s;
+        margin-right: 5%;
+        position: relative
+    }
+
+    .skills div.title-photo::before {
+        content: "";
+        background: url("https://picsum.photos/401/400"); 
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.4;
+        transition: opacity 1s;
+        transition-delay: 0.1s;
+    }
+
+    .skills:hover div.title-photo::before {
+        opacity: 0;
+    }
+
+    div#skills {
+        height: 350px;
+        min-width: 30%;
+        max-width: 70%;
+        width: 30%;
+        float: left;   
+        border: 1px solid white;
+        transition: width 1s, margin-left 1s, padding-top 0.5s;
+        margin-left: 5%;
+        background-color: rgba(255, 255, 0, 0.53);
+        position: relative;
+    }
+
+    div#skills::before {
+        content: "";
+        position: absolute;
+        background: url(https://picsum.photos/401/403);
+        background-size: cover;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        opacity: 0;
+        transition: opacity 1s;
+        transition-delay: 0.1s;
+    }
+
+    .skills:hover > div#skills::before {
+        opacity: 0.3;
+    }
 }

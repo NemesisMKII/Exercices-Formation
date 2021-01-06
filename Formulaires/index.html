@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulaires</title>
+        <style>
+            h1, h4 {
+                text-align: center;
+            }
+
+            form {
+                white-space: pre-line;
+            }
+
+            ol {
+                list-style-type: none;
+                display: inline-flex;
+                padding: 0;
+                margin: 0;
+            }
+
+            textarea {
+                height: 70px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Nous lançons une grande enquête sur les anciens stagiaires</h1>
+        <h4>merci de nous répondre</h4>
+        <br>
+        <form method="get" action="index.html">
+            <input type="name">Votre nom
+            <input type="name">Votre prénom
+            <input type="name">Votre date de naissance
+            <input type="name">Votre adresse
+            <input type="name">Votre ville
+            <input type="name">Votre code postal
+            <input type="name">Votre E-mail
+            <ol>
+                <li><input type="radio" class="radio">Vous êtes un homme</li>
+                <li><input type="radio" class=radio>Vous êtes une femme</li>               
+            </ol>
+            <select name="metier">
+                <option value="Developper" selected="selected">Développeur</option>
+                <option value="Analyst">Analyste</option>
+                <option value="Project_leader">Chef de projet</option>
+                <option value="Other">Autre</option>
+            </select>
+            <input type="name">Si vous avez répondu autre, précisez
+            
+            <select name="salaire">
+                <option value="999" selected="selected">&lsaquo; 1000</option>
+                <option value="1000-1500">&rsaquo; 1000 et &lsaquo; 1500</option>
+                <option value="1500-2000">&rsaquo; 1500 et &lsaquo; 2000</option>
+                <option value="2001">&rsaquo; 2000</option>
+            </select>
+            <input type="name">En quelle année avez-vous suivi le stage AFPA
+            <br>
+            <textarea name="commentaries" placeholder="Laissez nous un commentaire..."></textarea>
+            <p><strong>Merci d'avoir répondu à ce questionnnaire</strong></p>
+            <ol>
+                <li><input type="submit"></button></li>
+                <li><input type="reset"></button></li>
+            </ol>
+        </form>
+    </body>
+</html>
