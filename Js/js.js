@@ -292,5 +292,18 @@ Jour_nuit.onclick = function () {
 }
 
 function sizeChanger () {
-    document.getElementsByTagName("h1")[0].style.fontSize = "300px"
+    document.getElementsByTagName("h1")[0].style.fontSize = "50px";
+}
+
+var click_btn = document.getElementById("click-btn");
+var element = document.getElementsByTagName("div")[1]
+element.slided = false
+click_btn.onclick = function () {
+    if (element.slided == false) {
+        element.style.left = 0;
+        element.slided = true;
+    } else if (element.slided == true) {
+        element.style.left = "-100%";
+        element.slided = false;
+    }
 }
