@@ -7,19 +7,33 @@
     </head>
     <body>
         <head>
-            <input type="button" value="Jour" id="jr_nt">
+            <input type="button" value="Jour" id="jr_nt" class="testbouton">
         </head>
         <h1 onclick="sizeChanger()">Bienvenue dans cette page de test de scripts JS.</h1>
-        <input type="button" value="click" id="click-btn">
+        <input type="button" value="click" id="click-btn" class="testbouton">
         <div>
-            <div class="from-left red">
+            <div class="from-left red dive">
                 <h1>Voici un premier div qui apparait de la gauche !</h1>
             </div>
         </div>
-        <input type="radio" value="Semaine">Semaine
-        <input type="radio" value="Week-End">Week-End
-        <input type="button" value="Choix" id="choix">
-        <input type="text">
+        <input type="radio" name="travail" value="Semaine">Semaine
+        <input type="radio" name="travail" value="Week-End">Week-End
+        <input type="button" name="choix" value="Choix" id="choix">
+        <input type="text" id="texte">
+        <hr>
+        <h2>Post-It</h2>
+        <input type="button" value="Cache" id="cache">
+        <input type="button" value="Affiche" id="affiche">
+        <div id="postit"></div>
+        <p id="survol">Merci de bien vouloir me survoler.</p>
+        <div id="graph_chrono">
+            <p>Mon chrono</p>
+            <input type="button" value="start" id="start">
+            <input type="button" value="pause" id="pause">
+            <input type="button" value="stop" id="stop">
+            <span id="h">00</span>:<span id="m">00</span>:<span id="s">00</span>
+        </div>
+
         <script src="js.js"></script>
     </body>
 </html>

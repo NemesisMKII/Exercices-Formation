@@ -307,3 +307,95 @@ click_btn.onclick = function () {
         element.slided = false;
     }
 }
+
+var btnradio = document.getElementById("choix")
+btnradio.addEventListener("click", boutonradio);
+
+function boutonradio() {
+    var boutonsradio = document.getElementsByName("travail");
+    var texte = document.getElementById("texte");
+    for (i in boutonsradio) {
+        var vraibouton = boutonsradio[i];
+        if (boutonsradio[i].checked) {
+            texte.value = vraibouton.value;
+        }
+    }
+}
+
+window.addEventListener("load", function() {
+    //Post-It
+    var btnaffiche = document.getElementById("affiche");
+    var btncache = document.getElementById("cache");
+    var survol = document.getElementById("survol");
+    var postit = document.getElementById("postit");
+    btnaffiche.addEventListener("click", function() {affiche(postit, "Vous avez cliqué sur le bouton 'Afficher")});
+    btncache.addEventListener("click", function () {cache(postit)});
+    survol.addEventListener("mouseover", function () {affiche(postit, "Merci de me survoler...")});
+    survol.addEventListener("mouseout", function () {cache(postit)});
+})
+
+function cache(element) {
+    element.style.visibility = "hidden";
+}
+
+function affiche(element, text) {
+    element.style.visibility = "visible";
+    ecrire_texte(element, text)
+}
+
+function ecrire_texte(element, text) {
+    element.innerHTML = text;
+}
+
+//===================================================================================================
+//Chrone
+var btn_start = document.getElementById("start");
+var btn_pause = document.getElementById("pause");
+var btn_stop = document.getElementById("stop");
+var hoursSpan = document.getElementById("h");
+var minutesSpan = document.getElementById("m");
+var secondesSpan = document.getElementById("s");
+var timer;
+var tpsEcoule = 0;
+
+window.addEventListener("load", function () {
+    btn_start.paramTps = tpsEcoule;
+    btn_pause.paramTps = tpsEcoule;
+    btn_start.addEventListener("click", function (e) {
+        btn_start.style.display = "none";
+        btn_pause.style.display = "inline";
+        btn_stop.style.display = "inline";
+        // algo de calcul de nombre haures, minutes et secondes écoulées
+        var startTime = new Date();
+
+        timer = setInterval(function() {
+        // 1- Convertir en secondes :
+        var seconds = Math.round(
+        (new Date().getTime() - startTime.getTime()) / 1000
+        + e.target.paramTps); // e représente l'event déclencheur
+        // e.target représente l'objet déclencheur
+        // ici : bouton start ou bouton pause
+        // (cette prop a été ajoutée aux boutons)
+        // 2- Extraire les heures:
+        var hours = parseInt( seconds / 3600 );
+        seconds = seconds % 3600; // secondes restantes
+        // 3- Extraire les minutes:
+        var minutes = parseInt( seconds / 60 );
+        seconds = seconds % 60; // secondes restantes
+        // 4- afficher dans le span
+        hoursSpan = ajouteUnZero(hours);
+        minutesSpan = ajouteUnZero(minutes)
+        secondesSpan = ajouteUnZero(seconds);
+        // 5- incrémenter le nombre de secondes
+        tpsEcoule += 1;
+        }, 1000); // fin de function anonyme dans setInterval()
+    })
+})
+
+
+function ajouteUnZero(number) {
+    if (number < 10) {
+        number = "0" + number
+    }
+    return number
+}

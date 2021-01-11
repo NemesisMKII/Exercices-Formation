@@ -3,7 +3,7 @@ html, body, div {
     padding: 0;
 }
 
-input[type="button"] {
+.testbouton {
     text-align: center;
     width: 150px;
     height: 50px;
@@ -44,3 +44,32 @@ div.from-left {
 .blue {
     background-color: blue;
 }
+
+#postit {
+    width: 200px;
+    height: 75px;
+    background-color: rgba(255, 255, 0, 0.774);
+    position: absolute;
+    top: 735px;
+    left: 125px;
+    visibility: hidden;
+}
+
+div#graph_chrono {
+    border: 1px solid black;
+    height: 110px;
+    width: 180px;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+div#graph_chrono p {
+    position: absolute;
+    top: -27px;
+    left: 52px;
+    background-color: white;
+}
+
+#pause, #stop {display: none;}
