@@ -1,3 +1,8 @@
+html, body, div {
+    margin: 0;
+    padding: 0;
+}
+
 input[type="button"] {
     text-align: center;
     width: 150px;
@@ -5,4 +10,37 @@ input[type="button"] {
     font-size: 2em;
     display: block;
     margin: 0 auto;
+}
+
+#choix {
+    text-align: center;
+    width: 75px;
+    height: 30px;
+    font-size: 1em;
+    margin: 0;
+}
+
+div {
+    position: relative;
+    height: 500px;
+    width: 100%;
+    transition: left 1.5s, right 1.5s, opacity 1s;
+    text-align: center;
+}
+
+div h1 {
+    margin-top: 25%;
+}
+
+div.from-left {
+    position: absolute;
+    left: -100%;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
 }
