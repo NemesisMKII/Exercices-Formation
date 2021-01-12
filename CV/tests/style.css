@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    height: 400px;
+    width: 500px;
+}
+
+#surdiv {
+    position: relative;
+    background-color: #155a79;
+    margin: 10% auto;
+    z-index: 1;
+}
+
+#sousdiv {
+    position: absolute;
+    background-color: chartreuse;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+div#surdiv p {
+    font-size: 5em;
+    color: aqua;
+}
+
+div#sousdiv p {
+    font-size: 2em;
+}

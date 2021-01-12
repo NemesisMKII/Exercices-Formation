@@ -322,7 +322,7 @@ function boutonradio() {
     }
 }
 
-window.addEventListener("load", function() {
+/*window.addEventListener("load", function() {
     //Post-It
     var btnaffiche = document.getElementById("affiche");
     var btncache = document.getElementById("cache");
@@ -345,11 +345,11 @@ function affiche(element, text) {
 
 function ecrire_texte(element, text) {
     element.innerHTML = text;
-}
+} */
 
 //===================================================================================================
 //Chrone
-var btn_start = document.getElementById("start");
+/* var btn_start = document.getElementById("start");
 var btn_pause = document.getElementById("pause");
 var btn_stop = document.getElementById("stop");
 var hoursSpan = document.getElementById("h");
@@ -391,6 +391,7 @@ window.addEventListener("load", function () {
         }, 1000); // fin de function anonyme dans setInterval()
     })
 })
+*/
 
 
 function ajouteUnZero(number) {
@@ -399,3 +400,36 @@ function ajouteUnZero(number) {
     }
     return number
 }
+
+//==============================================================================================//
+//===================================Exercice CONTROLE DE CHAMP=================================//
+let alphabet = ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z");
+let chiffres = ("1","2","3","4","5","6","7","8","9","0");
+var symboles = ["@", "_","."];
+
+window.addEventListener("load", function () {
+    //=============Premier bouton=================//
+    var choix = document.getElementById("choixtexte")
+    var btn_onclick = document.getElementById("btnclicker")
+    btn_onclick.addEventListener("click", function() {
+        if (choix.value.length < 2) {
+            alert("La chaîne doit comporter au moins 2 caractères.")
+        } else {
+            alert("Vous avez saisi: " + choix.value)
+        }
+    })
+    //=====================Second Bouton=====================//
+    var chois = document.getElementById("choixmail")
+    var btn_auclick = document.getElementById("btnclickeur")
+    btn_auclick.addEventListener("click", verifmail)
+
+    function verifmail() {
+        if (chois.value.length = 0) {
+            alert("Saisie Obligatoire")
+        } else if (chois.value[0] == "@" || chois.value[chois.length] == "@") {
+            alert("doit contenir un élement '@'")
+        } else if ((!symboles[2] in chois.value) || (symboles[2] != chois.value[0]) || (symboles[2] != chois.value[chois.value.length])) {
+            alert("doit contenir un élement '.'")
+        }
+    }
+})

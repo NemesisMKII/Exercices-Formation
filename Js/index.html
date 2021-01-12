@@ -16,16 +16,21 @@
                 <h1>Voici un premier div qui apparait de la gauche !</h1>
             </div>
         </div>
+        <hr>
+        <!-- Exercice Choix-->
         <input type="radio" name="travail" value="Semaine">Semaine
         <input type="radio" name="travail" value="Week-End">Week-End
         <input type="button" name="choix" value="Choix" id="choix">
         <input type="text" id="texte">
         <hr>
+        <!-- Exercice Post-It-->
         <h2>Post-It</h2>
         <input type="button" value="Cache" id="cache">
         <input type="button" value="Affiche" id="affiche">
         <div id="postit"></div>
         <p id="survol">Merci de bien vouloir me survoler.</p>
+        <hr>
+        <!-- Exercice Chronomètre-->
         <div id="graph_chrono">
             <p>Mon chrono</p>
             <input type="button" value="start" id="start">
@@ -33,7 +38,14 @@
             <input type="button" value="stop" id="stop">
             <span id="h">00</span>:<span id="m">00</span>:<span id="s">00</span>
         </div>
-
+        <hr>
+        <!-- Exercice contrôle de champ-->
+        <p>Saisissez un texte pour appuyez sur le bouton Contrôle</p>
+        <input type="texte" id="choixtexte">
+        <input type="submit" value="Contrôle" id="btnclicker">
+        <p>Ecrire une adresse mail:</p>
+        <input type="texte" id="choixmail">
+        <input type="submit" value="Contrôles" id="btnclickeur">
         <script src="js.js"></script>
     </body>
 </html>
