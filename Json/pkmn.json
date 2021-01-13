@@ -1,0 +1,40 @@
+{
+    "nom": "Arcanin",
+    "niveau": 42,
+    "pv_max": 143,
+    "pv_actuels": 143,
+    "attaques": {
+        "Vit.Extrême": {
+            "nom": "Vit.Extrême",
+            "Puissance": 80,
+            "Précision": 100,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        },
+        "Mâchouille": {
+            "nom": "Mâchouille",
+            "Puissance":80,
+            "Précision": 100,
+            "PP_Max": 15,
+            "PP_actuels": 15
+        },
+        "Vengeance": {
+            "nom": "Vengeance",
+            "Puissance":70,
+            "Précision": 100,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        },
+        "Crocs Feu": {
+            "nom": "Crocs Feu",
+            "Puissance":65,
+            "Précision": 95,
+            "PP_Max": 15,
+            "PP_actuels": 15
+        }
+    },
+    "Status": "rien",
+    "Nom_Dresseur": "NemesisMKII",
+    "KO": false,
+    "Type": "Feu"
+}
