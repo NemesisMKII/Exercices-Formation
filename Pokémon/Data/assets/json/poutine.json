@@ -1,32 +1,32 @@
 {
-    "nom": "Arcanin",
-    "niveau": 42,
-    "pv_max": 143,
-    "pv_actuels": 143,
+    "nom": "Vladimir Poutine",
+    "niveau": 50,
+    "pv_max": 1730,
+    "pv_actuels": 1730,
     "attaques": [
         {
-            "nom": "Vit.Extrême",
+            "nom": "la b*te et le couteau",
             "Puissance": 80,
             "Précision": 100,
             "PP_Max": 5,
             "PP_actuels": 5
         },
         {
-            "nom": "Mâchouille",
+            "nom": "Nasdrovie",
             "Puissance":80,
             "Précision": 100,
             "PP_Max": 15,
             "PP_actuels": 15
         },
         {
-            "nom": "Vengeance",
-            "Puissance":70,
+            "nom": "Rasputin",
+            "Puissance":100,
             "Précision": 100,
             "PP_Max": 5,
             "PP_actuels": 5
         },
         {
-            "nom": "Crocs Feu",
+            "nom": "USSR",
             "Puissance":65,
             "Précision": 95,
             "PP_Max": 15,
@@ -36,5 +36,5 @@
     "Status": "rien",
     "Nom_Dresseur": "NemesisMKII",
     "KO": false,
-    "Type": "Feu"
+    "Type": "Imposant"
 }

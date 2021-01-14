@@ -1,32 +1,30 @@
 {
-    "nom": "Arcanin",
-    "niveau": 42,
-    "pv_max": 143,
-    "pv_actuels": 143,
+    "nom": "Emmanuel Macron",
+    "niveau": 50,
+    "pv_max": 1630,
+    "pv_actuels": 1630,
     "attaques": [
         {
-            "nom": "Vit.Extrême",
+            "nom": "Poudre de Perlinpinîn",
             "Puissance": 80,
             "Précision": 100,
             "PP_Max": 5,
             "PP_actuels": 5
         },
         {
-            "nom": "Mâchouille",
-            "Puissance":80,
-            "Précision": 100,
+            "nom": "Confinement",
             "PP_Max": 15,
             "PP_actuels": 15
         },
         {
-            "nom": "Vengeance",
+            "nom": "Brigitte!",
             "Puissance":70,
             "Précision": 100,
             "PP_Max": 5,
             "PP_actuels": 5
         },
         {
-            "nom": "Crocs Feu",
+            "nom": "Traverser la rue",
             "Puissance":65,
             "Précision": 95,
             "PP_Max": 15,
@@ -36,5 +34,5 @@
     "Status": "rien",
     "Nom_Dresseur": "NemesisMKII",
     "KO": false,
-    "Type": "Feu"
+    "Type": "Normal"
 }
