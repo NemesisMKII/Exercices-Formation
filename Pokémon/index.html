@@ -27,31 +27,31 @@
                     <div class="progress-bar bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
-            <img src="Data/assets/Pkmns/poutine.png" class="img_ennemy">
+            <img src="" id="img_ennemy">
             <!-- Infos Joueur -->
             <div id="player">
                 <p><span class="nom_pkmn"></span> <span class="gender"></span></p>
                 <div class="progress" id="player_pv">
                     <div class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p class="text-center" id="pv"></p>
+                <p class="text-center" id="pv"><span id="pv1"></span>/<span id="pv2"></span></p>
             </div>
-            <img src="Data/assets/Pkmns/macron.png" class="img_player">
+            <img src="" id="img_player">
             <!-- Chat textuel avec attaques etc-->
             <div id="textchat" class="invisible">
+                <p id="text" class="ondisplay"></p>
                 <div class="ondisplay" id="attaques">
-                    <div id="atk1" class="text-center">
-                        a
+                    <div id="atk1" name="atk" class="text-center">
                     </div>
-                    <div id="atk2" class="text-center">
-                        b
+                    <div id="atk2" name="atk" class="text-center">
                     </div>
-                    <div id="atk3" class="text-center">
-                        c
+                    <div id="atk3" name="atk" class="text-center">
                     </div>
-                    <div id="atk4" class="text-center">
-                        d
+                    <div id="atk4" name="atk" class="text-center">
                     </div>
+                </div>
+                <div class="ondisplay" id="choix_action">
+                    <h1>Attaques</h1>
                 </div>
             </div>
         </div> 

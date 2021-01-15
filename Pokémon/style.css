@@ -120,20 +120,35 @@ div#choose_screen, div#battle_screen {
     background-color: white;
     border: 2px solid black;
     z-index: 1;
+    display: flex;
 }
 
-.img_ennemy {
+#img_ennemy {
     position: absolute;
     top: 0;
     left: 450px;
     transform: scale(0.75);
 }
 
-.img_player {
+#img_player {
     position: absolute;
-    top: 125px;
-    left: 75px;
-    transform: scale(0.60);
+    top: 185px;
+    left: 100px;
+    transform: scale(1.5);
+}
+
+#choix_action {
+    width: 35%;
+    height: 100%;
+    border: 2px solid red;
+    position: absolute;
+    left: 65%;
+}
+
+#choix_action h1 {
+    width: 100%;
+    margin: auto;
+    text-align: center;
 }
 
 #attaques {
