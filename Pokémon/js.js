@@ -1,6 +1,6 @@
 //JSON//
 
-var macron = {
+var pkmns_available = [macron = {
     "nom": "Emmanuel Macron",
     "sexe": "♂",
     "niveau": 50,
@@ -38,9 +38,9 @@ var macron = {
     "Nom_Dresseur": "NemesisMKII",
     "KO": false,
     "Type": "Normal"
-}
+}, 
 
-var poutine = {
+poutine = {
     "nom": "Vladimir Poutine",
     "sexe": "♂",
     "niveau": 50,
@@ -80,7 +80,7 @@ var poutine = {
     "Nom_Dresseur": "NemesisMKII",
     "KO": false,
     "Type": "Imposant"
-}
+}]
 
 //FIN JSON//
 
@@ -92,6 +92,13 @@ window.addEventListener("load", function() {
     var battle_screen = document.getElementById("battle_screen");
     var textchat = document.getElementById("textchat");
     var atk_list = document.getElementById("attaques");
+
+    //On récupère le choix du Pkmn fait par le joueur
+    var bouton = document.getElementById("battle")
+    var player_pkmn;
+    bouton.addEventListener("click", function() {
+        player_pkmn = getchoice()
+    })
 
     //Initialisation variables du joueur
     var player_name = document.getElementsByClassName("nom_pkmn")[1];
@@ -108,14 +115,13 @@ window.addEventListener("load", function() {
     var ennemy_gender = document.getElementsByClassName("gender")[0];
     var ennemy_hpbar = document.getElementsByClassName("progress-bar")[0];
 
-    //Premier écrann
+    //Premier écran
     var start_btn = document.getElementById("battle");
-    start_btn.addEventListener("click", startbattle);
+    start_btn.addEventListener("click", startbattle); // ==> Mène vers l'écran de combat, et donc la fonction principale
 
 
     function startbattle() {
         start_btn.removeEventListener("click", startbattle);
-        console.log("click !");
         setTimeout(function() {
             choose_screen.setAttribute("class", "invisible");
             battle_screen.setAttribute("class", "visible");
@@ -127,17 +133,26 @@ window.addEventListener("load", function() {
     }
 
     function battle() {
+        //Fonction principale, tant que l'un des deux Pkms ne tombe pas K.O, le combat continue
+
         //Enregistrement des JSON dans le localStorage OU Chargement si déjà présent
         if (!localStorage.getItem("player")) {
-            localStorage.setItem("player", JSON.stringify(macron))
+            localStorage.setItem("player", JSON.stringify(player_pkmn))
         } else {
-            //EREUR ICI
-            var player = localStorage.getItem(JSON.parse("player"))
         }
         if (!localStorage.setItem("ennemy", JSON.stringify(poutine))) {
-            localStorage.setItem("ennemy", JSON.stringify(poutine))
+            localStorage.setItem("ennemy", JSON.stringify(poutine));
         }
     }
+
+    function getchoice() {
+        var choixpkmn = document.getElementById("select_your_pokemon").options; 
+        for (i in choixpkmn) {
+            console.log(choixpkmn[i].value)
+            if (choixpkmn[i].selected) {
+                return pkmns_available[i]
+            }
+        }
+    }
+
 })
-
-
