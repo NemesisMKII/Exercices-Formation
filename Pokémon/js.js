@@ -85,6 +85,135 @@ poutine = {
     "Nom_Dresseur": "NemesisMKII",
     "KO": false,
     "Type": "Imposant"
+},
+Kim_Jong_Un = {
+    "nom": "Kim Jong Un",
+    "sexe": "♂",
+    "niveau": 50,
+    "pv_max": 2150,
+    "pv_actuels": 2150,
+    "attaques": [
+        {
+            "nom": "Kinder nucléo",
+            "Puissance": 130,
+            "Précision": 100,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        },
+        {
+            "nom": "tu pètes tu crèves",
+            "Puissance":75,
+            "Précision": 100,
+            "PP_Max": 15,
+            "PP_actuels": 15
+        },
+        {
+            "nom": "Le marteau et la faucille",
+            "Puissance":175,
+            "Précision": 100,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        },
+        {
+            "nom": "Communo-déglingo",
+            "Puissance":250,
+            "Précision": 95,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        }
+    ],
+    "front_sprite": "Data/assets/Pkmns/kimjongun_front.png",
+    "back_sprite": "Data/assets/Pkmns/kimjongun_back.png",
+    "Status": "rien",
+    "Nom_Dresseur": "NemesisMKII",
+    "KO": false,
+    "Type": "Imposant"
+},
+Angela_Merkel = {
+    "nom": "Angela Merkel",
+    "sexe": "♀",
+    "niveau": 50,
+    "pv_max": 1830,
+    "pv_actuels": 1830,
+    "attaques": [
+        {
+            "nom": "Coronein",
+            "Puissance": 85,
+            "Précision": 100,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        },
+        {
+            "nom": "Scheiss",
+            "Puissance":125,
+            "Précision": 100,
+            "PP_Max": 15,
+            "PP_actuels": 15
+        },
+        {
+            "nom": "Ar Mein petit Frolein",
+            "Puissance":95,
+            "Précision": 100,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        },
+        {
+            "nom": "Der Erlkonig",
+            "Puissance":195,
+            "Précision": 95,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        }
+    ],
+    "front_sprite": "Data/assets/Pkmns/angela_merkel_front.png",
+    "back_sprite": "Data/assets/Pkmns/angela_merkel_back.png",
+    "Status": "rien",
+    "Nom_Dresseur": "NemesisMKII",
+    "KO": false,
+    "Type": "Imposant"
+},
+Donald_Trump = {
+    "nom": "Donald Trump",
+    "sexe": "♂",
+    "niveau": 50,
+    "pv_max": 1750,
+    "pv_actuels": 1750,
+    "attaques": [
+        {
+            "nom": "Make elections GREAT AGAIN",
+            "Puissance": 85,
+            "Précision": 100,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        },
+        {
+            "nom": "Ô Mexi-i-co",
+            "Puissance":225,
+            "Précision": 100,
+            "PP_Max": 15,
+            "PP_actuels": 15
+        },
+        {
+            "nom": "Fake attack",
+            "Puissance":95,
+            "Précision": 100,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        },
+        {
+            "nom": "Grab them by ...",
+            "Puissance":35,
+            "Précision": 95,
+            "PP_Max": 5,
+            "PP_actuels": 5
+        }
+    ],
+    "front_sprite": "Data/assets/Pkmns/donald_trump_front.png",
+    "back_sprite": "Data/assets/Pkmns/donald_trump_back.png",
+    "Status": "rien",
+    "Nom_Dresseur": "NemesisMKII",
+    "KO": false,
+    "Type": "Imposant"
 }]
 
 //FIN JSON//
