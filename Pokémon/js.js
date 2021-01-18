@@ -16,6 +16,7 @@ var pkmns_available = [macron = {
         },
         {
             "nom": "Confinement",
+            "Puissance": 50,
             "PP_Max": 15,
             "PP_actuels": 15
         },
@@ -96,6 +97,7 @@ window.addEventListener("load", function() {
     var battle_screen = document.getElementById("battle_screen");
     var textchat = document.getElementById("textchat");
     var atk_list = document.getElementById("attaques");
+    var start_message = document.getElementById("start_message")
 
     //On récupère le choix du Pkmn fait par le joueur
     var bouton = document.getElementById("battle")
@@ -137,6 +139,8 @@ window.addEventListener("load", function() {
 
     //Ecran de combat
     var pet = document.getElementById("text");
+    var petpet = document.getElementById("pp_text");
+    var choix = document.getElementById("choix_action");
     
 
 
@@ -156,14 +160,20 @@ window.addEventListener("load", function() {
             player_sprite.src = player_pkmn.back_sprite;
             ennemy_sprite.src = ennemy_pkmn.front_sprite;
             pet.innerHTML = "Un " + ennemy_pkmn.nom + " sauvage apparait !";
-            setTimeout(battle, 1000);
+            setTimeout(function() {
+                start_message.setAttribute("class", "visible")
+                setTimeout(function() {
+                    start_message.setAttribute("class", "invisible")
+                    battle()
+                }, 1000);
+            })
         }, 1000);
        
     }
 
     function battle() {
         //Fonction principale, tant que l'un des deux Pkms ne tombe pas K.O, le combat continue
-        var choix = document.getElementById("choix_action");
+        
 
         //Enregistrement des JSON dans le localStorage OU Chargement si déjà présent
         if (player_pkmn.pv_actuels <= 0 || ennemy_pkmn.pv_actuels <= 0) {
@@ -196,6 +206,7 @@ window.addEventListener("load", function() {
     
     
             //Début du tour
+            pet.innerHTML = "Qu'allez-vous faire ?"
             choix.setAttribute("class", "ondisplay");
             choix.addEventListener("click", function() {
                 pet.setAttribute("class","outdisplay")
@@ -223,9 +234,17 @@ window.addEventListener("load", function() {
                 choix_attaque = player_pkmn.attaques[i]
             }
         }
-        degats()
-        enregistrement()
-        battle()
+        choix.setAttribute("class", "outdisplay")
+        atk_list.setAttribute("class","outdisplay")
+        setTimeout(function() {
+            pet.setAttribute("class","ondisplay")
+            pet.innerHTML = "Votre " + player_pkmn.nom + " a utilisé " + choix_attaque.nom;
+            setTimeout(function() {
+                degats()
+                enregistrement()
+            }, 1000);
+            setTimeout(battle, 2000);
+        }, 1000)
     }
 
     function choix_atk_ennemy() {
@@ -233,18 +252,23 @@ window.addEventListener("load", function() {
     }  
 
     function degats() {
-        ennemy_pkmn.pv_actuels = ennemy_pkmn.pv_actuels - choix_attaque.Puissance
         player_pkmn.pv_actuels = player_pkmn.pv_actuels - choix_attaque_ennemi.Puissance
         player_hpbar.style.width = ((player_pkmn.pv_actuels / player_pkmn.pv_max) * 100) + "%" 
         if (player_pkmn.pv_actuels <= 0) {
             player_hpbar.style.width = "0%"
             player_pkmn.pv_actuels = 0
+            player_hp.innerHTML = 0
         }
+        console.log("player: " + choix_attaque.nom)
+        console.log("ennemy: " + choix_attaque_ennemi.nom)
+        ennemy_pkmn.pv_actuels = ennemy_pkmn.pv_actuels - choix_attaque.Puissance
         ennemy_hpbar.style.width = ((ennemy_pkmn.pv_actuels / ennemy_pkmn.pv_max) * 100) + "%" 
         if (ennemy_pkmn.pv_actuels <= 0) {
             ennemy_hpbar.style.width = "0%"
             ennemy_pkmn.pv_actuels = 0
         }
+        console.log(player_pkmn.pv_actuels)
+        console.log(ennemy_pkmn.pv_actuels)
     }
 
     function enregistrement() {

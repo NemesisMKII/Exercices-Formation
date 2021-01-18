@@ -1,0 +1,48 @@
+input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+}
+
+input {
+    display: block;
+    margin: 0 auto;
+}
+
+table {
+    margin: 0 auto;
+}
+
+tr {
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+    width: 50px;
+    height: 10px;
+}
+
+#allumee, #eteinte {
+    position: absolute;
+}
+
+#allumee {
+    width: 175px;
+    height: 200px;
+    left: 0%;
+    top: -10%;
+}
+
+#eteinte {
+    height: 150px;
+    width: 100px;
+    left: 20%;
+    top: 20%;
+}
+
+#conteneur {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    margin: 0 auto;
+}
