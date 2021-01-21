@@ -37,7 +37,6 @@ $(document).ready(() => {
     rdv_connect.click(login_toggle)
     rdv_inscription.click(login_toggle)
 
-
     //Ajout d'évenement au clic sur le bouton "inscription"
     $(`#btninscription`).click((e) => {
         //On annule l'envoi du formulaire

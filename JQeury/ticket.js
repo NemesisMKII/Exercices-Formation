@@ -29,6 +29,7 @@ $(document).ready(() => {
     var prix_produit = $("#prix_produit")
 
     $(`#form-button`).click((e) => {
+        $("#resultat").empty()
         e.preventDefault()
         var prix_total_produit = quantite_produit.val() * prix_produit.val()
 
@@ -48,6 +49,7 @@ $(document).ready(() => {
             prix_total: prix_total_produit
         }
 
+        resultat += prix_total_produit
         produit.produit.push(objet)
         localStorage.setItem("tableau", JSON.stringify(produit))
 
@@ -57,15 +59,16 @@ $(document).ready(() => {
 
         $(`.delete`).unbind("click", deleteligne)
         $(".delete").click(deleteligne)
+        $(`#resultat`).append(`Le prix est de: ${resultat}`)
     })
 
     $(`.delete`).click(deleteligne)
 
     function deleteligne(event) {
+        $("#resultat").empty()
         var monButton = $(this)
         var maligne = monButton.parent().parent()
-        resultat -= maligne.children(3).text()
-        console.log(maligne.children()[2].text());
+        resultat -= maligne.children()[3].innerHTML
 
         for (x in produit.produit) {
             if (maligne.children().first().text() == produit.produit[x].nom) {
@@ -74,6 +77,7 @@ $(document).ready(() => {
                 localStorage.setItem("tableau", JSON.stringify(produit))
             }
         }
+        $(`#resultat`).append(`Le prix est de: ${resultat}`)
     }
     for (x in produit.produit) {
         resultat += produit.produit[x].prix_total

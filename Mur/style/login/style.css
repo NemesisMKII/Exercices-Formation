@@ -1,27 +1,51 @@
-body {
-    background: url('../../Data/background/login_background.png');
+.body {
+    height: 1200px;
+    position: relative;
 }
 
+.body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../../Data/background/login_background.png');
+    z-index: -1;
+    filter: grayscale(50%);
+}   
+
 #loginscreen {
-    width: 40%;
-    height: 50%;
-    top: 40%;
-    left: 30%;
-    border: 1px solid black;
+    min-height: 300px;
+    max-height: 350px;
+    min-width: 350px;
+    max-width: 600px;
     border-radius: 15px;
     transition: opacity 1s;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -40%);
 }
 
 #inscriptionscreen {
-    width: 40%;
-    height: 60%;
-    top: 40%;
-    left: 30%;
-    border: 1px solid black;
+    max-width: 600px;
+    min-height: 375px;
+    max-height: 400px;
     border-radius: 15px;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -40%);
+    transition: opacity 1s;
+}
+
+.opacity {
+    opacity: 0;
 }
 
 h1 {
     text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
     font-size: 4.5em;
+    padding: 3% 0;
 }

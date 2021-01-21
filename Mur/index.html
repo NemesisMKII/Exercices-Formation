@@ -12,47 +12,49 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1 class="text-center text-white text-nowrap">Welcome to the <br> Mur.</h1>
-        <!-- Box Login -->
-        <div class="container position-absolute shadow-lg bg-white" id="loginscreen">
-            <h3 class="text-center">Connexion</h3>
-            <form method="get" action="" class="py-3" id="login">
-                <div class="my-2">
-                    <p class="mx-5 my-0">Identifiants / Adresse mail</p>
-                    <input type="text" class="w-75 mx-5">
-                </div>
-                <div class="my-3">
-                    <p class="mx-5 my-0">Mot de passe</p>
-                    <input type="password" class="w-75 mx-5">
-                </div>
-                <div class="d-grid gap-2 col-3 mx-auto">
-                    <button type="submit" value="CONNEXION" class="btn btn-secondary" id="btnconnexion">CONNEXION</button>
-                </div>
-            </form>
-            <p class="small">Pas encore inscrit ? <a href="index.html" id="rdvinscription">Inscrivez-vous dès maintenant</a> </p>
-        </div>
+        <div class="body">
+            <h1 class="text-center text-white text-nowrap">Welcome to the <br> Mur.</h1>
+            <!-- Box Login -->
+            <div class="container position-absolute shadow-lg bg-white border border-2 border-dark" id="loginscreen">
+                <h3 class="text-center">Connexion</h3>
+                <form method="get" action="" class="py-3" id="login">
+                    <div class="my-2">
+                        <p class="mx-5 my-0">Identifiants / Adresse mail</p>
+                        <input type="text" class="w-75 mx-5">
+                    </div>
+                    <div class="my-3">
+                        <p class="mx-5 my-0">Mot de passe</p>
+                        <input type="password" class="w-75 mx-5">
+                    </div>
+                    <div class="d-grid gap-2 col-3 mx-auto">
+                        <button type="submit" value="CONNEXION" class="btn btn-secondary" id="btnconnexion">CONNEXION</button>
+                    </div>
+                </form>
+                <p class="small">Pas encore inscrit ? <a href="index.html" id="rdvinscription">Inscrivez-vous dès maintenant</a> </p>
+            </div>
 
-        <!-- Box Inscription -->
-        <div class="container position-absolute shadow-lg bg-white invisible" id="inscriptionscreen">
-            <p>Déjà inscrit ? <a href="index.html" id="rdvconnect">Connectez-vous</a></p>
-            <h3 class="text-center">Inscription</h3>
-            <form method="get" action="" class="py-3" id="inscription">
-                <div class="my-2">
-                    <p class="mx-5 my-0">Nom d'utilisateur</p>
-                    <input type="text" class="w-75 mx-5" data-id="username">
-                </div>
-                <div class="my-2">
-                    <p class="mx-5 my-0">Adresse e-mail</p>
-                    <input type="email" class="w-75 mx-5" data-id="mail">
-                </div>
-                <div class="my-2">
-                    <p class="mx-5 my-0">Mot de passe</p>
-                    <input type="password" placeholder="Entrez un mot de passe ici ... (min 8 caractères)" class="w-75 mx-5" data-id="password">
-                </div>
-                <div class="d-grid gap-2 col-3 mx-auto">
-                    <button type="submit" value="INSCRIPTION" class="btn btn-secondary" id="btninscription">INSCRIPTION</button>
-                </div>
-            </form>
+            <!-- Box Inscription -->
+            <div class="container position-absolute shadow-lg bg-white border border-2 border-dark invisible" id="inscriptionscreen">
+                <p>Déjà inscrit ? <a href="index.html" id="rdvconnect">Connectez-vous</a></p>
+                <h3 class="text-center">Inscription</h3>
+                <form method="get" action="" class="py-3" id="inscription">
+                    <div class="my-2">
+                        <p class="mx-5 my-0">Nom d'utilisateur</p>
+                        <input type="text" class="w-75 mx-5" data-id="username">
+                    </div>
+                    <div class="my-2">
+                        <p class="mx-5 my-0">Adresse e-mail</p>
+                        <input type="email" name="user_email" class="w-75 mx-5" data-id="mail">
+                    </div>
+                    <div class="my-2">
+                        <p class="mx-5 my-0">Mot de passe</p>
+                        <input type="password" placeholder="Entrez un mot de passe ici ... (min 8 caractères)" class="w-75 mx-5" data-id="password">
+                    </div>
+                    <div class="d-grid gap-2 col-3 mx-auto">
+                        <button type="submit" value="INSCRIPTION" class="btn btn-secondary" id="btninscription">INSCRIPTION</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <!-- script JS -->

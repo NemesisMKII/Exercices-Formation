@@ -86,13 +86,43 @@
 
     //=============================//
     //Ex 5//
-    $("#allumee").hide()
-    $("#allumee").click((e) => {
-        $("#allumee").toggle()
-        $("#eteinte").toggle()
+
+    ampoule = {
+        status: "eteinte",
+        allumee: "Img/ampoule1.png",
+        eteinte: "Img/ampoule2.png"
+    }
+
+    var div = $("#conteneur")   
+    var lampe = ampoule
+
+    if (!localStorage.getItem('ampoule')) {
+        localStorage.setItem('ampoule', JSON.stringify(lampe))
+    } else {
+        lampe = JSON.parse(localStorage.getItem('ampoule'))
+    }
+
+    lampe_status()
+    
+    div.click(() => {
+        if (lampe.status == "allumee") {
+            lampe.status = "eteinte"  
+        } else {
+            lampe.status = "allumee"  
+        }
+        lampe_status()
+        localStorage.setItem('ampoule', JSON.stringify(lampe))
     })
-    $("#eteinte").click((e) => {
-        $("#allumee").toggle()
-        $("#eteinte").toggle()
-    })
+
+    function lampe_status() {
+        if (lampe.status == "allumee") {
+            div.empty()
+            div.append(`
+            <img src="${lampe.allumee}" id="allumee" />`)    
+        } else {
+            div.empty()
+            div.append(`
+            <img src="${lampe.eteinte}" id="eteinte" />`) 
+        }
+    }
 })
