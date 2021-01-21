@@ -1,0 +1,27 @@
+body {
+    background: url('../../Data/background/login_background.png');
+}
+
+#loginscreen {
+    width: 40%;
+    height: 50%;
+    top: 40%;
+    left: 30%;
+    border: 1px solid black;
+    border-radius: 15px;
+    transition: opacity 1s;
+}
+
+#inscriptionscreen {
+    width: 40%;
+    height: 60%;
+    top: 40%;
+    left: 30%;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+h1 {
+    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+    font-size: 4.5em;
+}

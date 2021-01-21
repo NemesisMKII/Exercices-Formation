@@ -1,0 +1,37 @@
+ETAPE 1: Connexion / Inscription
+
+CONNEXION
+- L'utilisateur est sur la page de login
+- S'il n'est pas encore inscrit, il peut s'inscrire via un formulaire
+    Sinon: Il peut rentrer ses identifiants de Connexion
+- La page va scanner la base de données pour vérifier si les données rentrées par l'utilisateur sont bien les mêmes que dans la base de données.
+    SI OUI:
+        L'utilisateur se connecte
+    SI NON: 
+        On retourne un message d'erreur typé "Les identifiants sont erronés"
+
+------------------------------------------------------------------------------------------
+
+INSCRIPTION:
+    -L'utilisateur remplit les champs demandés pour s'inscrire
+    -Au clic sur le bouton envoyer, on vérifie si les champs sont bien remplis et conformes.
+    SI OUI:
+        Inscription de l'utilisateur et retour à la page de Connexion
+    SI NON: 
+        On retourne un message d'erreur
+
+=====================================================================================================================================================
+CONCEPTION DE L'ETAPE 1:
+
+-Page de login:
+    - Nom du site en gros grand en haut de la Page
+    - Fenêtre de login avec deux inputs "identifiants" et "mot de passe"
+    - On récupère les inputs, 
+        s'ils correspondent à des identifiants dans la base de données, on autorise la connexion, 
+        sinon on renvoie un message d'erreur
+
+    - Fenêtre d'inscription sur la même page et au même endroit que le login, MAIS caché au chargement de la page
+    -Sur clic sur "inscrivez vous maintenant" on cache la fenêtre de login et on affiche la fenêtre d'inscription
+    -Sur envoie du formulaire, on vérifie les champs:
+        SI un champ est vide OU si un dex champs est incorrect, on renvoie un message d'erreur
+        SINON on autorise l'inscription et on stocke les infos de connexion de l'utilisateur

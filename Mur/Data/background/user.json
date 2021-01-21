@@ -1,0 +1,25 @@
+{
+    "username": "",
+    "password": "",
+    "USER_ID": 0,
+    "friends": 0
+}
+
+{
+    "posts": [{
+        "POST_ID": 0,
+        "AUTHOR_ID": 0,
+        "date": "",
+        "centent": "",
+        "img_url": "",
+        "likes": [],
+        "coms": [
+            {
+                "USER_ID": 0,
+                "date": "",
+                "content": ""
+            }
+        ]
+
+    }]
+}
