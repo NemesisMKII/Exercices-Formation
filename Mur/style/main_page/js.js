@@ -14,7 +14,11 @@ $(document).ready(() => {
     var darkmode = false
     var toggledarkmode = $("#toggledark")
     toggledarkmode.click(() => {
-        darkmode = true
+        if (darkmode) {
+            darkmode = false
+        } else {
+            darkmode = true
+        }
         $('body').fadeOut('fast')
         $('body').fadeIn('fast')
         setTimeout(() => {
