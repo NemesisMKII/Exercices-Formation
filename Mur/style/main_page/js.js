@@ -26,7 +26,7 @@ $(document).ready(() => {
             $('header').toggleClass("dark")
             $('textarea').toggleClass('dark')
             $('div').toggleClass('dark')
-        }, 200)
+        }, 190)
     })
 
     var postsubmit = $("#postsubmit")
