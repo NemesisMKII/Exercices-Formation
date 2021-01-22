@@ -1,11 +1,4 @@
 //JSON//
-user = {
-    username: "",
-    password: "",
-    email: "",
-    USER_ID: 0,
-    friends: 0
-}
 
 postobj = {
     posts: [{
@@ -53,18 +46,37 @@ $(document).ready(() => {
             alert("Le mot de passe doit comporter min 8 caractères !")
         } else {
             var new_user = {
-                username: $(`input[data-id=username]`).val(),
-                password :  $(`input[data-id=password]`).val(),
-                email : $(`input[data-id=mail]`).val()
+                username: $(`input[data-id=newusername]`).val(),
+                password :  $(`input[data-id=newpassword]`).val(),
+                email : $(`input[data-id=newmail]`).val(),
+                first_name: $(`input[data-id=prenom]`).val(),
+                last_name: $(`input[data-id=nom]`).val(),
+                age: $(`input[data-id=age]`).val(),
+                USER_ID: 0,
+                is_connected: false
             }
             user_list.push(new_user)
-            console.log(user_list);
+            localStorage.setItem("user_list",JSON.stringify(user_list))
         }
     })
 
-    //================//
+    //Ajout d'évenement au clic sur le bouton "connexion"//
     $(`#btnconnexion`).click((e) => {
         e.preventDefault()
+        //On vérifie si les champs sont vides
+        if ($(`input[data-id=username]`).val() == "" || $(`input[data-id=password]`).val() == "") {
+            alert("Identifiants/mot de passe incorrects.")
+        } else {
+            user_list = JSON.parse(localStorage.getItem("user_list"))
+            var check_loginn = check_login()
+            if (check_loginn) {
+                alert("Connecté !")
+                window.location.href = "main_page.html"
+            } else {
+                alert("Identifiants/Mot de passe incorrects.")
+            }
+            console.log(user_list);
+        }
     })
 
     function login_toggle(e) {
@@ -72,5 +84,21 @@ $(document).ready(() => {
         e.preventDefault()
         $(`#loginscreen`).toggleClass("invisible")
         $(`#inscriptionscreen`).toggleClass("invisible")
+    }
+
+    function check_login() {
+        for (i in user_list) {
+            if ($(`input[data-id=username]`).val() != user_list[i].username) {
+                if ($(`input[data-id=username]`).val() != user_list[i].email) {
+                }
+            } else {
+                if ($(`input[data-id=password]`).val() == user_list[i].password) {
+                    user_list[i].is_connected = true
+                    sessionStorage.setItem("user", JSON.stringify(user_list[i]))
+                    return true
+                } else {
+                }
+            }
+        }
     }
 })

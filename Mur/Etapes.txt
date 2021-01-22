@@ -27,7 +27,7 @@ CONCEPTION DE L'ETAPE 1:
     - Nom du site en gros grand en haut de la Page
     - Fenêtre de login avec deux inputs "identifiants" et "mot de passe"
     - On récupère les inputs, 
-        s'ils correspondent à des identifiants dans la base de données, on autorise la connexion, 
+        s'ils correspondent à des identifiants dans la base de données, on autorise la connexion, et on redirige l'utilisateur vers la seconde page
         sinon on renvoie un message d'erreur
 
     - Fenêtre d'inscription sur la même page et au même endroit que le login, MAIS caché au chargement de la page
