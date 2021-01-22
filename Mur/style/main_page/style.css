@@ -7,12 +7,22 @@ body {
     background: url("../../Data/background/wall_background.png");
     background-size: cover;
     background-attachment: fixed;
-    background-repeat: no-repeat;
+}
+
+.bodydark {
+    background: url("../../Data/background/wall_background_darkmode.png");
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 header {
     margin-top: -10px;
     height: 50px;
+}
+
+.dark {
+    background-color: rgb(14, 14, 14) !important;
+    color: blanchedalmond !important;
 }
 
 #btndisconnect, #toggledark {

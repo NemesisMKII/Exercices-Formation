@@ -57,6 +57,8 @@ $(document).ready(() => {
             }
             user_list.push(new_user)
             localStorage.setItem("user_list",JSON.stringify(user_list))
+            alert("Félicitations! Vous êtes désormais inscrit.")
+            location.reload()
         }
     })
 
@@ -75,7 +77,6 @@ $(document).ready(() => {
             } else {
                 alert("Identifiants/Mot de passe incorrects.")
             }
-            console.log(user_list);
         }
     })
 
