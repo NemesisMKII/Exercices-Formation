@@ -67,6 +67,7 @@ $(document).ready(() => {
     function deleteligne(event) {
         $("#resultat").empty()
         var monButton = $(this)
+        console.log($(this));
         var maligne = monButton.parent().parent()
         resultat -= maligne.children()[3].innerHTML
 

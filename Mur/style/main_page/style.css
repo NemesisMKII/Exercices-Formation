@@ -32,3 +32,25 @@ header {
 .addpostcontainer {
     height: 150px;
 }
+
+.status_bar {
+    height: 30px;
+}
+
+.addcom {
+    height: 30px;
+}
+
+.bricked {
+    border: 2px solid !important;
+    border-color: rgb(202, 89, 24) !important;
+    border-radius: 5px !important;
+    color: brown !important;
+    font-weight: 700;
+}
+
+.btn-warning {
+    color: black;
+    background-color: brown;
+    border-color: brown;
+}
