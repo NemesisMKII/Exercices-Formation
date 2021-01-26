@@ -11,6 +11,10 @@ $(document).ready(() => {
     } else {
         for (i in current_user.post_list) {
             post_it(current_user.post_list[i].content, current_user.post_list[i].date, current_user.post_list[i])
+            if (current_user.post_list[i].is_liked == true) {
+                $('.maincontainer').children(`div:nth-child(${1})`).children("div:nth-child(3)").children().first().toggleClass('bricked')
+                console.log($('.maincontainer').children(`div:nth-child(${1})`).data('id'));
+            }
         }
     }
 
@@ -59,9 +63,9 @@ $(document).ready(() => {
         text.unbind("focus")
     })
     postsubmit.click(() => {
-        $('.like').unbind("click")
-        $('.comment').unbind("click")
-        $('.deleteme').unbind("click")
+        $('.like').unbind("click", clique)
+        $('.comment').unbind("click", clique)
+        $('.deleteme').unbind("click", clique)
 
         post = {
             POST_ID: generate_ID(),
@@ -69,6 +73,7 @@ $(document).ready(() => {
             date: get_date(),
             content: text.val(),
             img_url: $("#fileupload").val(),
+            is_liked: false,
             likes: [],
             coms: []
         }
@@ -86,28 +91,17 @@ $(document).ready(() => {
             }
             localStorage.setItem("user_list", JSON.stringify(user_list))
             $('#fileupload').val("")
-
-            $('.like').unbind("click", clique)
-            $('.like').click(clique)
         }
+
+        $('.comment').click(clique)
+        $('.deleteme').click(clique)
+        $('.like').click(clique)
     })
 
-    $('.like').click(clique)
     $('.comment').click(clique)
     $('.deleteme').click(clique)
+    $('.like').click(clique)
 
-    function clique() {
-        var button = $(this)
-        if (button.hasClass("like")) {
-            like_post(button)
-        } else if (button.hasClass("comment")) {
-            alert("hey hey")
-        } else if (button.hasClass("deleteme")) {
-            delete_post(button)
-        }
-        
-        
-    }
     //functions
 
     function get_user() {
@@ -135,7 +129,9 @@ $(document).ready(() => {
     function get_date() {
         var d = new Date();
 
-        var output = d.getHours() + 'H' + d.getMinutes()
+        var output = (d.getHours() < 10 ? "0" : "") + d.getHours() + 
+                     'H' + 
+                     (d.getMinutes() < 10 ? "0" : "") + d.getMinutes()
             
         return output
     }
@@ -152,7 +148,7 @@ $(document).ready(() => {
                 <p>${text}</p>
             </div>`)}
             <div class="status_bar d-flex">
-                    <button class="btn like w-50 border border-dark p-0">Brick</button>
+                    <button class="btn like w-50 border border-dark p-0">${(post.likes.length > 0 ? post.likes.length : "")} Brique${post.likes.length > 1 ? `s` : ''}</button>
                     <button class="btn comment w-50 border border-dark p-0">Commenter</button>
             </div>
             <div class="coms dark">
@@ -171,7 +167,7 @@ $(document).ready(() => {
                 <p>${text}</p>
             </div>`)}
             <div class="status_bar d-flex">
-                    <button type="button" class="btn like w-50 border border-dark p-0">Brick</button>
+                    <button type="button" class="btn like w-50 border border-dark p-0">${(post.likes.length > 0 ? post.likes.length : "")} Brique${post.likes.length > 1 ? `s` : ''}</button>
                     <button type="button" class="btn comment w-50 border border-dark p-0">Commenter</button>
             </div>
             <div class="coms border border-dark ps-1">
@@ -186,17 +182,55 @@ $(document).ready(() => {
 
     }
 
+    function clique() {
+        var button = $(this)
+        if (button.hasClass("like")) {
+            like_post(button)
+        } else if (button.hasClass("comment")) {
+            alert("hey hey")
+        } else if (button.hasClass("deleteme")) {
+            delete_post(button)
+        }
+        
+    }
+
     function like_post(button) {
         var current_post = button.parent().parent()
         var current_post_id = current_post.data('id')
         for (i in current_user.post_list) {
             if (current_post_id == current_user.post_list[i].POST_ID) {
-                current_user.post_list[i].likes.push(current_user.user_ID)
-                button.prepend(current_user.post_list[i].likes.length + " ")
-                button.toggleClass("bricked")
-                button.unbind("click")
+                if (!current_user.post_list[i].is_liked || !current_user.user_ID in current_user.post_list[i].likes) {
+                    add_like(i, button)
+                } else {
+                    remove_like(i, button)
+                }
             }
         }
+    }
+
+    function add_like(element, button) {
+        current_user.post_list[element].likes.push(current_user.user_ID)
+        current_user.post_list[element].is_liked = true
+        button.empty()
+        button.prepend(`${current_user.post_list[i].likes.length} brique${current_user.post_list[i].likes.length > 1 ? `s` : ''} `)
+        button.toggleClass('bricked')
+        console.log(current_user.post_list[element].likes);
+        updateJSON()
+    }
+
+    function remove_like(element, button) {
+        console.log(element);
+        for (j in current_user.post_list[element].likes) {
+            if (current_user.user_ID == current_user.post_list[element].likes[j]) {
+                current_user.post_list[element].likes.splice(j, 1)
+            }
+        }
+        current_user.post_list[element].is_liked = false
+        button.empty()
+        button.prepend(`${(current_user.post_list[i].likes.length > 0 ? current_user.post_list[i].likes.length : ``)} brique${current_user.post_list[i].likes.length > 1 ? `s` : ''}`)
+        button.toggleClass('bricked')
+        console.log(current_user.post_list[element].likes);
+        updateJSON()
     }
 
     function delete_post(button) {
@@ -204,8 +238,19 @@ $(document).ready(() => {
         var current_post_id = current_post.data('id')
         for (i in current_user.post_list) {
             if (current_post_id == current_user.post_list[i].POST_ID) {
-            current_user.post_list.splice(i, 1)
-            current_post.remove()
+                current_user.post_list.splice(i, 1)
+                current_post.remove()
+                updateJSON()
+            }
+        }
+    }   
+
+
+    function updateJSON() {
+        for (j in user_list) {
+            if (current_user.user_ID == user_list[j].user_ID) {
+                user_list[j] = current_user
+                localStorage.setItem("user_list", JSON.stringify(user_list))
             }
         }
     }
