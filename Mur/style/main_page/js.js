@@ -173,7 +173,7 @@ $(document).ready(() => {
             <div class="coms border border-dark ps-1">
                 <p> Commentaires </p>
             </div>
-            <textarea class="addcom w-100 border border-dark" placeholder="écrire un commentaire ..."></textarea>
+            <input type='text' class="addcom w-100 border border-dark" placeholder="écrire un commentaire ..."></input>
             <p class="float-start">${date}</p>
             <button class="deleteme btn btn-warning p-0 float-end">Supprimer</button>
         </div>
