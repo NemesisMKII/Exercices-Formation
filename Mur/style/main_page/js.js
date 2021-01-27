@@ -13,9 +13,11 @@ $(document).ready(() => {
             post_it(current_user.post_list[i].content, current_user.post_list[i].date, current_user.post_list[i])
             if (current_user.post_list[i].is_liked == true) {
                 $('.maincontainer').children(`div:nth-child(${1})`).children("div:nth-child(3)").children().first().toggleClass('bricked')
-                console.log($('.maincontainer').children(`div:nth-child(${1})`).data('id'));
             }
         }
+        for (var post=0; post < $('.walldiv').children().length; post++) {      
+            console.log($('.walldiv').children(`div:nth-child(${post+1})`).children());
+        }   
     }
 
     btndisconnect.click(() => {
@@ -66,6 +68,7 @@ $(document).ready(() => {
         $('.like').unbind("click", clique)
         $('.comment').unbind("click", clique)
         $('.deleteme').unbind("click", clique)
+        $('form').unbind('submit', comsubmit)
 
         post = {
             POST_ID: generate_ID(),
@@ -96,19 +99,82 @@ $(document).ready(() => {
         $('.comment').click(clique)
         $('.deleteme').click(clique)
         $('.like').click(clique)
+        $('form').submit(comsubmit)
     })
 
     $('.comment').click(clique)
     $('.deleteme').click(clique)
     $('.like').click(clique)
 
+    $('form').submit(comsubmit)
+
+    function comsubmit(e) {
+        //Function that add a new comment in the comment section of a post
+        e.preventDefault()
+        var current_post_ID = $(e.target).parent().data('id')
+        var com_section = $(e.target).parent().children('div.coms')
+        var com_INPUT = $(e.target).children('input').val()
+        var com = {
+            AUTHOR_ID: current_user.user_ID,
+            com_ID: generate_ID(),
+            content: com_INPUT,
+            likes: [],
+            date: get_date()
+        }
+
+        for (i in current_user.post_list) {
+            if (current_post_ID == current_user.post_list[i].POST_ID) {
+                current_user.post_list[i].coms.push(com)
+            }
+        }
+
+        post_COM(com_section, com)
+
+        updateJSON()
+
+    }
+
+    function post_COM(com_section, com) {
+        
+        var com_author = get_username_byID(com.AUTHOR_ID)
+
+        com_section.append(`
+        <div class='border-bottom border-dark p-0' data-id="${com.com_ID}">
+            <p class="m-0"><strong>${com_author}</strong></p>
+            <p class="ms-2 mb-0">${com.content}</p>
+            <p class="d-flex justify-content-end me-2">${com.date}</p>
+        </div>`)
+    }
     //functions
+
+    function clique() {
+        //Function that get onclick event on either the "like", "comment", or "delete" buttons in a post
+        //Redirects to proper functions
+        var button = $(this)
+        if (button.hasClass("like")) {
+            like_post(button)
+        } else if (button.hasClass("comment")) {
+            console.log(button);
+            button.parent().parent().children('form').children('input').focus()
+        } else if (button.hasClass("deleteme")) {
+            delete_post(button)
+        }
+        
+    }
 
     function get_user() {
         //if the user is not connected, redirect to login page
         for (i in user_list) {
             if (user_list[i].is_connected == true) {
                 return user_list[i]
+            }
+        }
+    }
+
+    function get_username_byID(ID) {
+        for (i in user_list) {
+            if (ID == user_list[i].user_ID) {
+                return user_list[i].first_name + " " + user_list[i].last_name
             }
         }
     }
@@ -154,6 +220,10 @@ $(document).ready(() => {
             <div class="coms dark">
                 <p> Commentaires </p>
             </div>
+            <form method="get" action="main_page.html">
+                <input type='text' class="addcom w-75 border border-dark" placeholder="écrire un commentaire ..."></input>
+                <button class="w-25">Envoyer</button>
+            </form>
             <p>${date}</p>
         </div>
         `)
@@ -170,10 +240,13 @@ $(document).ready(() => {
                     <button type="button" class="btn like w-50 border border-dark p-0">${(post.likes.length > 0 ? post.likes.length : "")} Brique${post.likes.length > 1 ? `s` : ''}</button>
                     <button type="button" class="btn comment w-50 border border-dark p-0">Commenter</button>
             </div>
-            <div class="coms border border-dark ps-1">
-                <p> Commentaires </p>
+            <p class='m-0 border border-dark border-1 text-center'><strong> Commentaires</strong> </p>
+            <div class="coms border border-dark ps-0">
             </div>
-            <input type='text' class="addcom w-100 border border-dark" placeholder="écrire un commentaire ..."></input>
+            <form method="get" action="main_page.html"'>
+                <input type='text' class="addcom w-75" placeholder="écrire un commentaire ..."></input>
+                <button class="w-25 float-end btncom">Envoyer</button>
+            </form>
             <p class="float-start">${date}</p>
             <button class="deleteme btn btn-warning p-0 float-end">Supprimer</button>
         </div>
@@ -182,17 +255,6 @@ $(document).ready(() => {
 
     }
 
-    function clique() {
-        var button = $(this)
-        if (button.hasClass("like")) {
-            like_post(button)
-        } else if (button.hasClass("comment")) {
-            alert("hey hey")
-        } else if (button.hasClass("deleteme")) {
-            delete_post(button)
-        }
-        
-    }
 
     function like_post(button) {
         var current_post = button.parent().parent()
@@ -231,6 +293,23 @@ $(document).ready(() => {
         button.toggleClass('bricked')
         console.log(current_user.post_list[element].likes);
         updateJSON()
+    }
+
+    function add_COMMENT(button) {
+        var current_post = button.parent().parent()
+        var current_post_coms = current_post.children('div.coms');
+        var current_post_id = current_post.data('id')
+        var addcom_INPUT = current_post.children('input')
+        console.log(current_post_coms);
+        addcom_INPUT.focus()
+        $('.btncom').click((e) => {
+            e.preventDefault()
+            current_post_coms.append(`
+                    <div>
+                        <p>${addcom_INPUT.val()}</p>
+                    </div>
+            `)
+        })
     }
 
     function delete_post(button) {
