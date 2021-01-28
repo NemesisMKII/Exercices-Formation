@@ -24,7 +24,7 @@ $(document).ready(() => {
 
     for (i in user_list) {
         $('#accesstoUser').append(`
-        <option>${get_username_byID(user_list[i].user_ID)}</option>
+        <option data-id="${user_list[i].user_ID}">${get_username_byID(user_list[i].user_ID)}</option>
         `)
     }
 
@@ -39,6 +39,15 @@ $(document).ready(() => {
         current_user.profile_picture = $('#changeProfilePic').val()
         updateJSON()
         window.location.href = "main_page.html"
+    })
+
+    $('#home').click((e) => {
+        e.preventDefault()
+        window.location.href = "main_page.html"
+    })
+
+    $('#btnuser').click(() => {
+        console.log($('#accesstoUser'));
     })
 
     btndisconnect.click(() => {

@@ -63,6 +63,7 @@ header {
 #list_user {
     width: 23%;
     margin: 0 1%;
+    height: 75px;
 }
 
 .user_profile {
@@ -95,4 +96,10 @@ header {
 
 #changeProfilePic, #changePicBtn {
     margin: 0 auto;
+}
+
+#home {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
 }
