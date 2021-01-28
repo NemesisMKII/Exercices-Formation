@@ -81,7 +81,7 @@ header {
 
 #user_profile {
     width: 23%;
-    height: 325px;
+    height: 375px;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -91,4 +91,8 @@ header {
     height: 250px;
     display: block;
     margin: 10px auto;
+}
+
+#changeProfilePic, #changePicBtn {
+    margin: 0 auto;
 }

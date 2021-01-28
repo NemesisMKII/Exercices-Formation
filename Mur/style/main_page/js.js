@@ -5,7 +5,6 @@ $(document).ready(() => {
     var btndisconnect = $("#btndisconnect")
 
     var current_user = get_user()
-    $("#home_name").append(get_username_byID(current_user.user_ID))
     if (!current_user.post_list) {
         current_user.post_list = []
     } else {
@@ -32,7 +31,15 @@ $(document).ready(() => {
     $('#user_profile').append(`
         <img src='${current_user.profile_picture}' id="profile-photo"/>
         <h3 class="text-center">${get_username_byID(current_user.user_ID)}</h3> 
+        <input type="text" placeholder="Changer d'Img ..." class="d-block" id="changeProfilePic"/>
+        <button class="d-block" id="changePicBtn">Changer</button>
     `)
+
+    $("#changePicBtn").click(() => {
+        current_user.profile_picture = $('#changeProfilePic').val()
+        updateJSON()
+        window.location.href = "main_page.html"
+    })
 
     btndisconnect.click(() => {
         for (i in user_list) {
