@@ -5,20 +5,34 @@ $(document).ready(() => {
     var btndisconnect = $("#btndisconnect")
 
     var current_user = get_user()
-    $("#home_name").append(current_user.last_name + " " + current_user.first_name)
+    $("#home_name").append(get_username_byID(current_user.user_ID))
     if (!current_user.post_list) {
         current_user.post_list = []
     } else {
         for (i in current_user.post_list) {
             post_it(current_user.post_list[i].content, current_user.post_list[i].date, current_user.post_list[i])
+            var current_post_com = $('.walldiv').children(`div:nth-child(${1})`).children('div.coms')
+            if (current_user.post_list[i].coms.length > 0) {
+                for (j in current_user.post_list[i].coms) {
+                    post_COM(current_post_com, current_user.post_list[i].coms[j]);
+                }
+            }
             if (current_user.post_list[i].is_liked == true) {
-                $('.maincontainer').children(`div:nth-child(${1})`).children("div:nth-child(3)").children().first().toggleClass('bricked')
+                $('.maincontainer').children(`div:nth-child(${1})`).children(`div:nth-child(${current_user.post_list[i].img_url ? '4':'3'})`).children().first().toggleClass('bricked')
             }
         }
-        for (var post=0; post < $('.walldiv').children().length; post++) {      
-            console.log($('.walldiv').children(`div:nth-child(${post+1})`).children());
-        }   
     }
+
+    for (i in user_list) {
+        $('#accesstoUser').append(`
+        <option>${get_username_byID(user_list[i].user_ID)}</option>
+        `)
+    }
+
+    $('#user_profile').append(`
+        <img src='${current_user.profile_picture}' id="profile-photo"/>
+        <h3 class="text-center">${get_username_byID(current_user.user_ID)}</h3> 
+    `)
 
     btndisconnect.click(() => {
         for (i in user_list) {
@@ -47,7 +61,10 @@ $(document).ready(() => {
             $('div').toggleClass('dark')
             $('#fileupload').toggleClass('dark')
             $('.like').toggleClass('dark')
-            $('comment').toggleClass('dark')
+            $('.like').toggleClass('bg-white')
+            $('.comment').toggleClass('dark')
+            $('.comment').toggleClass('bg-white')
+            $('.addcom').toggleClass('dark')
         }, 190)
     })
 
@@ -61,6 +78,7 @@ $(document).ready(() => {
             }
         })
     })
+    
     text.focusout(() => {
         text.unbind("focus")
     })
@@ -113,11 +131,11 @@ $(document).ready(() => {
         e.preventDefault()
         var current_post_ID = $(e.target).parent().data('id')
         var com_section = $(e.target).parent().children('div.coms')
-        var com_INPUT = $(e.target).children('input').val()
+        var com_INPUT = $(e.target).children('input')
         var com = {
             AUTHOR_ID: current_user.user_ID,
             com_ID: generate_ID(),
-            content: com_INPUT,
+            content: com_INPUT.val(),
             likes: [],
             date: get_date()
         }
@@ -131,17 +149,16 @@ $(document).ready(() => {
         post_COM(com_section, com)
 
         updateJSON()
+        com_INPUT.val('')
 
     }
 
     function post_COM(com_section, com) {
-        
-        var com_author = get_username_byID(com.AUTHOR_ID)
 
-        com_section.append(`
-        <div class='border-bottom border-dark p-0' data-id="${com.com_ID}">
-            <p class="m-0"><strong>${com_author}</strong></p>
-            <p class="ms-2 mb-0">${com.content}</p>
+        com_section.prepend(`
+        <div class='p-0 ${darkmode ? 'dark': ''}' data-id="${com.com_ID}">
+            <p class="m-0"><img src="${current_user.profile_picture}" class="com_user_photo ms-1 me-1 mt-1" /><strong>${get_username_byID(com.AUTHOR_ID)}</strong></p>
+            <p class="ms-2 mb-0 mt-2">${com.content}</p>
             <p class="d-flex justify-content-end me-2">${com.date}</p>
         </div>`)
     }
@@ -172,9 +189,9 @@ $(document).ready(() => {
     }
 
     function get_username_byID(ID) {
-        for (i in user_list) {
-            if (ID == user_list[i].user_ID) {
-                return user_list[i].first_name + " " + user_list[i].last_name
+        for (user in user_list) {
+            if (ID == user_list[user].user_ID) {
+                return user_list[user].first_name + " " + user_list[user].last_name
             }
         }
     }
@@ -203,56 +220,29 @@ $(document).ready(() => {
     }
 
     function post_it(text, date, post) {
-        if (darkmode) {
             $(`.walldiv`).prepend(`
-        <div class="container mt-4 border-bottom border-dark pb-4 dark data-id="${post.POST_ID}">
-            <h5>${current_user.first_name} ${current_user.last_name}</h5>
-            <button class="deleteme btn btn-danger p-0">Supprimer</button>
-            ${(post.img_url.length > 1 ? `<img src="${post.img_url}" class="postimg img-fluid w-100" />` : '' )}
-            ${(post.img_url.length > 1 & post.content.length == 0 ? '' : `
-            <div class="container-fluid h-25 dark">
-                <p>${text}</p>
-            </div>`)}
-            <div class="status_bar d-flex">
-                    <button class="btn like w-50 border border-dark p-0">${(post.likes.length > 0 ? post.likes.length : "")} Brique${post.likes.length > 1 ? `s` : ''}</button>
-                    <button class="btn comment w-50 border border-dark p-0">Commenter</button>
-            </div>
-            <div class="coms dark">
-                <p> Commentaires </p>
-            </div>
-            <form method="get" action="main_page.html">
-                <input type='text' class="addcom w-75 border border-dark" placeholder="écrire un commentaire ..."></input>
-                <button class="w-25">Envoyer</button>
-            </form>
-            <p>${date}</p>
-        </div>
-        `)
-        } else {
-            $(`.walldiv`).prepend(`
-        <div class="container mt-4 border-bottom border-dark pb-5" data-id="${post.POST_ID}">
-            <h5>${current_user.first_name} ${current_user.last_name}</h5>
+        <div class="container mt-4 border-bottom border-dark pb-5 ${darkmode ? 'dark': ''}" data-id="${post.POST_ID}">
+            <h5><img src="${current_user.profile_picture}" class="user_profile me-1" />${get_username_byID(post.AUTHOR_ID)}</h5>
             ${(post.img_url.length > 1 ? `<img src="${post.img_url}" class="postimg img-fluid w-100 mb-1" />` : '' )}
             ${(post.img_url.length > 1 & post.content.length == 0 ? '' : `
-            <div class="container-fluid h-25">
+            <div class="container-fluid h-25 p-0 pt-1 ${darkmode ? 'dark': ''}">
                 <p>${text}</p>
             </div>`)}
             <div class="status_bar d-flex">
-                    <button type="button" class="btn like w-50 border border-dark p-0">${(post.likes.length > 0 ? post.likes.length : "")} Brique${post.likes.length > 1 ? `s` : ''}</button>
-                    <button type="button" class="btn comment w-50 border border-dark p-0">Commenter</button>
+                    <button type="button" class="btn like w-50 border border-dark p-0 ${darkmode ? 'dark': ''}">${(post.likes.length > 0 ? post.likes.length : "")} Brique${post.likes.length > 1 ? `s` : ''}</button>
+                    <button type="button" class="btn comment w-50 border border-dark p-0 ${darkmode ? 'dark': ''}">Commenter</button>
             </div>
-            <p class='m-0 border border-dark border-1 text-center'><strong> Commentaires</strong> </p>
+            <p class='m-0 border border-dark border-1 text-center bg-brick'><strong> Commentaires</strong> </p>
             <div class="coms border border-dark ps-0">
             </div>
             <form method="get" action="main_page.html"'>
-                <input type='text' class="addcom w-75" placeholder="écrire un commentaire ..."></input>
+                <input type='text' class="addcom w-75 ${darkmode ? 'dark': ''}" placeholder="écrire un commentaire ..."></input>
                 <button class="w-25 float-end btncom">Envoyer</button>
             </form>
             <p class="float-start">${date}</p>
             <button class="deleteme btn btn-warning p-0 float-end">Supprimer</button>
         </div>
         `)
-        }
-
     }
 
 
@@ -293,23 +283,6 @@ $(document).ready(() => {
         button.toggleClass('bricked')
         console.log(current_user.post_list[element].likes);
         updateJSON()
-    }
-
-    function add_COMMENT(button) {
-        var current_post = button.parent().parent()
-        var current_post_coms = current_post.children('div.coms');
-        var current_post_id = current_post.data('id')
-        var addcom_INPUT = current_post.children('input')
-        console.log(current_post_coms);
-        addcom_INPUT.focus()
-        $('.btncom').click((e) => {
-            e.preventDefault()
-            current_post_coms.append(`
-                    <div>
-                        <p>${addcom_INPUT.val()}</p>
-                    </div>
-            `)
-        })
     }
 
     function delete_post(button) {

@@ -13,11 +13,21 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     </head>
     <body>
-        <header class="fixed-top vw-100 bg-white border-bottom border-2 border-dark d-inline-flex align-content-center justify-content-between">
+        <!-- header -->
+        <header class="fixed-top w-100 bg-white border-bottom border-2 border-dark d-inline-flex align-content-center justify-content-between">
             <button type="button" class="btn btn-dark p-2 pt-3" id="btndisconnect">Déconnexion</button>
             <p class="m-0 pt-3" id="home_name"></p>
             <button type="button" class="btn btn-dark pt-3" id="toggledark">DARK MODE</button>
         </header>
+        <!-- div accès autre utilisateur-->
+        <div class="container bg-white float-start" id="list_user">
+            <p>Accéder à un utilisateur existant</p>
+            <select class="w-75" id="accesstoUser">
+            </select>
+        </div>
+        <!-- Div affichage nom + photo de profil-->
+        <div class="container b-white float-end bg-white me-3" id="user_profile">
+        </div>
         <div class="container bg-white w-50 border border-dark addpostcontainer mt-5">
             <h6>Ajouter un post ...</h6>
                 <textarea class="w-100 h-50"></textarea>

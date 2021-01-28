@@ -21,6 +21,7 @@ $(document).ready(() => {
         //Boucle pour vérifier si les champs sont remplis et corrects
         var champs = $(`#inscription`).children().children("input")
         for (var i = 0; i < champs.length; i++) {
+
             if ($(champs[i]).val() == "") {
                 alert("Il y a des champs vide")
                 break
@@ -37,8 +38,10 @@ $(document).ready(() => {
                 last_name: $(`input[data-id=nom]`).val(),
                 age: $(`input[data-id=age]`).val(),
                 user_ID: generate_ID(),
+                profile_picture: ($(`input[data-id=profile_pic]`).val().length == 0 ? `./Data/pictures/default_user.png`: $(`input[data-id=profile_pic]`).val()),
                 is_connected: false
             }
+
             user_list.push(new_user)
             localStorage.setItem("user_list",JSON.stringify(user_list))
             alert("Félicitations! Vous êtes désormais inscrit.")

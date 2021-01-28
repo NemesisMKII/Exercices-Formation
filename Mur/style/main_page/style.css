@@ -22,7 +22,12 @@ header {
 
 .dark {
     background-color: rgb(14, 14, 14) !important;
-    color: blanchedalmond !important;
+    color: white !important;
+    border-color: rgb(10, 10, 10) !important;
+}
+
+.bg-brick {
+    background-color: #b34c2c;
 }
 
 #btndisconnect, #toggledark {
@@ -53,4 +58,37 @@ header {
     color: black;
     background-color: brown;
     border-color: brown;
+}
+
+#list_user {
+    width: 23%;
+    margin: 0 1%;
+}
+
+.user_profile {
+    height: 65px;
+    width: 65px;
+    border: 1px solid rgb(10, 10, 10);
+    border-radius: 5px;
+}
+
+.com_user_photo {
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgb(15, 15, 15);
+    border-radius: 5px;
+}
+
+#user_profile {
+    width: 23%;
+    height: 325px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#profile-photo {
+    width: 225px;
+    height: 250px;
+    display: block;
+    margin: 10px auto;
 }
