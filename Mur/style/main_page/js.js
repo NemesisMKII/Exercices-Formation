@@ -22,8 +22,7 @@ $(document).ready(() => {
             var current_post_com = $('.walldiv').children(`div:nth-child(${1})`).children('div.coms')
             if (user.post_list[i].coms.length > 0) {
                 for (j in user.post_list[i].coms) {
-                    console.log(user.post_list[i].coms[j]);
-                    post_COM(current_post_com, user.post_list[i].coms[j]);
+                    post_COM(current_post_com, user.post_list[i].coms[j], user.post_list[i].coms[j].AUTHOR_ID);
                 }
             }
             if (user.post_list[i].is_liked == true) {
@@ -67,7 +66,7 @@ $(document).ready(() => {
 
     btndisconnect.click(() => {
         for (i in user_list) {
-            if (user_list[i].user_ID == user.user_ID) {
+            if (user_list[i].user_ID == current_user.user_ID) {
                 user_list[i].is_connected = false
             }
         }
@@ -188,24 +187,23 @@ $(document).ready(() => {
             }
         }
 
-        post_COM(com_section, com)
+        post_COM(com_section, com, com.AUTHOR_ID)
 
         updateJSON()
         com_INPUT.val('')
 
     }
 
-    function post_COM(com_section, com) {
-        author_com = get_user_byID(com.AUTHOR_ID)
-        console.log(author_com);
+    function post_COM(com_section, com, com_AUTHOR) {
+        console.log(get_user_byID(com_AUTHOR));
 
         com_section.prepend(`
         <div class='p-0 ${darkmode ? 'dark': ''}' data-id="${com.com_ID}">
-            <p class="m-0"><img src="${get_user_byID(com.AUTHOR_ID).profile_picture}" class="com_user_photo ms-1 me-1 mt-1" /><strong>${get_username_byID(com.AUTHOR_ID)}</strong></p>
+            <p class="m-0"><img src="${get_user_byID(com_AUTHOR).profile_picture}" class="com_user_photo ms-1 me-1 mt-1" /><strong>${get_username_byID(com.AUTHOR_ID)}</strong></p>
             <p class="ms-2 mb-0 mt-2">${com.content}</p>
             <p class="d-flex justify-content-end me-2">${com.date}</p>
         </div>`)
-        console.log(get_user_byID(com.AUTHOR_ID));
+        console.log(get_user_byID(com_AUTHOR));
     }
 
     function clique() {
@@ -318,12 +316,10 @@ $(document).ready(() => {
         button.empty()
         button.prepend(`${user.post_list[i].likes.length} brique${user.post_list[i].likes.length > 1 ? `s` : ''} `)
         button.toggleClass('bricked')
-        console.log(user.post_list[element].likes);
         updateJSON()
     }
 
     function remove_like(element, button) {
-        console.log(element);
         for (j in user.post_list[element].likes) {
             if (user.user_ID == user.post_list[element].likes[j]) {
                 user.post_list[element].likes.splice(j, 1)
@@ -333,7 +329,6 @@ $(document).ready(() => {
         button.empty()
         button.prepend(`${(user.post_list[i].likes.length > 0 ? user.post_list[i].likes.length : ``)} brique${user.post_list[i].likes.length > 1 ? `s` : ''}`)
         button.toggleClass('bricked')
-        console.log(user.post_list[element].likes);
         updateJSON()
     }
 
