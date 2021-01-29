@@ -48,7 +48,7 @@ header {
 
 .bricked {
     border: 2px solid !important;
-    border-color: rgb(202, 89, 24) !important;
+    border-color: #b34c2c !important;
     border-radius: 5px !important;
     color: brown !important;
     font-weight: 700;

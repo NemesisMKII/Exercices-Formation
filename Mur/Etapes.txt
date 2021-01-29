@@ -45,6 +45,8 @@ POUR chaque post dans la liste des posts de l'utilisateur actuel:
     On affiche dans le DOM le post en question avec l'ID du post via une fonction post-it()
     On récupère le post fraîchement affiché dans le DOM
     SI la longueur de la variable "coms" du post > 0
+        POUR chaque coms du post:
+            On affiche le com dans le post dans le DOM via une fonction
 
     SI ce post a été liké:
         On change le style du bouton "Brique"
