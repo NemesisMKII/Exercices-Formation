@@ -20,31 +20,45 @@ $(document).ready(() => {
         e.preventDefault()
         //Boucle pour vérifier si les champs sont remplis et corrects
         var champs = $(`#inscription`).children().children("input")
+        var emptychamps = false;
+        var usernameexists = false;
         for (var i = 0; i < champs.length; i++) {
-
-            if ($(champs[i]).val() == "") {
-                alert("Il y a des champs vide")
-                break
-            }
+            if ($(champs[i]).data('id') == 'profile_pic') {
+            } else if ($(champs[i]).val() == "") {
+                emptychamps = true
+            }   
         }
-        if ($(`input[type="password"]`)[1].value.length < 8) {
-            alert("Le mot de passe doit comporter min 8 caractères !")
+        if (emptychamps) {
+            alert("Il y a des champs vide")
         } else {
-            var new_user = {    
-                username: $(`input[data-id=newusername]`).val(),
-                password :  $(`input[data-id=newpassword]`).val(),
-                email : $(`input[data-id=newmail]`).val(),
-                first_name: $(`input[data-id=prenom]`).val(),
-                last_name: $(`input[data-id=nom]`).val(),
-                age: $(`input[data-id=age]`).val(),
-                user_ID: generate_ID(),
-                profile_picture: ($(`input[data-id=profile_pic]`).val().length == 0 ? `./Data/pictures/default_user.png`: $(`input[data-id=profile_pic]`).val()),
-                is_connected: false
+            if ($(`input[type="password"]`)[1].value.length < 8) {
+                alert("Le mot de passe doit comporter min 8 caractères !")
+            } else {
+                for (users in user_list) {
+                    if ($('input[data-id=newusername]').val() == user_list[users].username || $('input[data-id=newmail]').val() == user_list[users].email) {
+                        usernameexists = true
+                    }
+                }
+                if (usernameexists) {
+                    alert("Nom d'utilisateur / E-mail déjà existants !")
+                } else {
+                    var new_user = {    
+                        username: $(`input[data-id=newusername]`).val(),
+                        password :  $(`input[data-id=newpassword]`).val(),
+                        email : $(`input[data-id=newmail]`).val(),
+                        first_name: $(`input[data-id=prenom]`).val(),
+                        last_name: $(`input[data-id=nom]`).val(),
+                        age: $(`input[data-id=age]`).val(),
+                        user_ID: generate_ID(),
+                        profile_picture: ($(`input[data-id=profile_pic]`).val().length == 0 ? `./Data/pictures/default_user.png`: $(`input[data-id=profile_pic]`).val()),
+                        is_connected: false
+                    }
+        
+                    user_list.push(new_user)
+                    localStorage.setItem("user_list",JSON.stringify(user_list))
+                    alert("Félicitations! Vous êtes désormais inscrit.")
+                }
             }
-
-            user_list.push(new_user)
-            localStorage.setItem("user_list",JSON.stringify(user_list))
-            alert("Félicitations! Vous êtes désormais inscrit.")
         }
     })
 
