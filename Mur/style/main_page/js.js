@@ -31,12 +31,15 @@ $(document).ready(() => {
         }
     }
 
+    //Boucle qui va remplir la liste d'utilisateurs existants sur le site
     for (i in user_list) {
         $('#accesstoUser').append(`
         <option data-id="${user_list[i].user_ID}">${get_username_byID(user_list[i].user_ID)}</option>
         `)
     }
 
+    /*Remplissage de la div de droite contenant La photo de profil, le nom de l'utilisateur
+    Ainsi que la possibilité de changer la photo de profil s'il s'agit de l'utilisateur connecté*/
     $('#user_profile').append(`
         <img src='${user.profile_picture}' id="profile-photo"/>
         <h3 class="text-center">${get_username_byID(user.user_ID)}</h3>
@@ -44,17 +47,21 @@ $(document).ready(() => {
         <button class="d-block" id="changePicBtn">Changer</button>`: '' }
     `)
 
+    //Changement de la ppd au click du bouton
     $("#changePicBtn").click(() => {
         user.profile_picture = $('#changeProfilePic').val()
         updateJSON()
         window.location.href = "main_page.html"
     })
 
+    //Bouton Home 'The Mur'
     $('#home').click((e) => {
         e.preventDefault()
         window.location.href = "main_page.html"
     })
 
+    /*Div pour accéder à la page du'n autre utilisateur, au clic sur le bouton 
+    on ajoute l'ID de l'utilisateur choisi dans la barre de l'URL qu'on viendra récupérer ensuite */
     $('#btnuser').click(() => {
         for (var user_option = 1; user_option < $('#accesstoUser').children().length +1; user_option++) {
             if ($('#accesstoUser').children(`option:nth-child(${user_option})`).is(':selected')) {
@@ -155,6 +162,8 @@ $(document).ready(() => {
     $('.like').click(clique)
 
     $('form').submit(comsubmit)
+    
+    //functions
 
     function get_userbyURL() {
         var ID = window.location.href.split('?')[1].split('=')[1]
@@ -164,8 +173,6 @@ $(document).ready(() => {
             }
         }
     }
-    
-    //functions
 
     function comsubmit(e) {
         //Function that add a new comment in the comment section of a post
@@ -195,6 +202,7 @@ $(document).ready(() => {
     }
 
     function post_COM(com_section, com, com_AUTHOR) {
+        // Fonction appelée dans comsubmit et qui va rajouter l'HTML dans le DOM 
         console.log(get_user_byID(com_AUTHOR));
 
         com_section.prepend(`
@@ -231,6 +239,7 @@ $(document).ready(() => {
     }
 
     function get_username_byID(ID) {
+        //Retrouve le nom d'utilisateur à partir d'un ID (Obsolète)
         for (userz in user_list) {
             if (ID == user_list[userz].user_ID) {
                 return user_list[userz].first_name + " " + user_list[userz].last_name
@@ -239,6 +248,7 @@ $(document).ready(() => {
     }
 
     function get_user_byID(ID) {
+        //Retrouve un utilisateur dans la base de données en utilisant un ID
         for (userzz in user_list) {
             if (ID == user_list[userzz].user_ID) {
                 return user_list[userz]
@@ -247,6 +257,7 @@ $(document).ready(() => {
     }
 
     function generate_ID() {
+        //Génére un ID
         var ID = "";
         for (var i = 0; i < 30; i++) {
             var x = letters[getRandomInt(62)]
@@ -256,10 +267,12 @@ $(document).ready(() => {
     }
 
     function getRandomInt(max) {
+        //Renvoie un chiffre random entre 0 et 9
         return Math.floor(Math.random() * Math.floor(max));
     }
 
     function get_date() {
+        //récupère la date et l'heure
         var d = new Date();
 
         var output = (d.getHours() < 10 ? "0" : "") + d.getHours() + 
@@ -270,6 +283,7 @@ $(document).ready(() => {
     }
 
     function post_it(post) {
+        //Fonction appelée dans la génération du mur pour afficher les posts déja existants de l'utilisateur
             $(`.walldiv`).prepend(`
         <div class="container mt-4 border-bottom border-dark pb-5 ${darkmode ? 'dark': ''}" data-id="${post.POST_ID}">
             <h5><img src="${user.profile_picture}" class="user_profile me-1" />${get_username_byID(post.AUTHOR_ID)}</h5>
@@ -295,22 +309,30 @@ $(document).ready(() => {
         `)
     }
 
-
     function like_post(button) {
+        //Fonction appelée au click sur le bouton "Brique"
         var current_post = button.parent().parent()
         var current_post_id = current_post.data('id')
         for (i in user.post_list) {
             if (current_post_id == user.post_list[i].POST_ID) {
-                if (!user.post_list[i].is_liked || !user.user_ID in user.post_list[i].likes) {
+                let x = 0;
+                var is_liked = false;
+                for (x in user.post_list[i].likes) {
+                    console.log("liked");
+                    if (user.user_ID == user.post_list[i].likes[x]) {
+                        is_liked = true;
+                        remove_like(i, button)
+                    }
+                if (!is_liked) {
                     add_like(i, button)
-                } else {
-                    remove_like(i, button)
+                }
                 }
             }
         }
     }
 
     function add_like(element, button) {
+        //Fonction appelée par la fonction like_post
         user.post_list[element].likes.push(user.user_ID)
         user.post_list[element].is_liked = true
         button.empty()
@@ -320,6 +342,7 @@ $(document).ready(() => {
     }
 
     function remove_like(element, button) {
+        //Retire le like d'un post si l'utilisateur l'a déjà liké
         for (j in user.post_list[element].likes) {
             if (user.user_ID == user.post_list[element].likes[j]) {
                 user.post_list[element].likes.splice(j, 1)
@@ -333,6 +356,7 @@ $(document).ready(() => {
     }
 
     function delete_post(button) {
+        // Fonction qui récupère un post pour le supprimer au click du bouton "Supprimer"
         var current_post = button.parent()
         var current_post_id = current_post.data('id')
         for (i in user.post_list) {
@@ -344,8 +368,8 @@ $(document).ready(() => {
         }
     }   
 
-
     function updateJSON() {
+        //Met à jour la base de données
         for (j in user_list) {
             if (user.user_ID == user_list[j].user_ID) {
                 user_list[j] = user
@@ -354,4 +378,4 @@ $(document).ready(() => {
         }
     }
 
-})
+})  
