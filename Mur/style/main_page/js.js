@@ -315,17 +315,10 @@ $(document).ready(() => {
         var current_post_id = current_post.data('id')
         for (i in user.post_list) {
             if (current_post_id == user.post_list[i].POST_ID) {
-                let x = 0;
-                var is_liked = false;
-                for (x in user.post_list[i].likes) {
-                    console.log("liked");
-                    if (user.user_ID == user.post_list[i].likes[x]) {
-                        is_liked = true;
-                        remove_like(i, button)
-                    }
-                if (!is_liked) {
+                if (!user.post_list[i].is_liked || !user.user_ID in user.post_list[i].likes) {
                     add_like(i, button)
-                }
+                } else {
+                    remove_like(i, button)
                 }
             }
         }
