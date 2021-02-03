@@ -1,0 +1,59 @@
+Exemple via TP Facebook
+
+Après rencontre avec le client, le PRODUCT OWNER revient vers nous: le projet est de créer un site similaire à Facebook
+Il nous fournit le PRODUCT BACKLOG, qui sera rempli au fur et à mesure des demandes et attentes du client.
+
+S'en suit la première réunion de avec l'équipe de développement, une réunion supervisée par le SCRUM MASTER, chargé de faire comprendre 
+la méthode agile SCRUM et de la faire appliquer par tout le monde.
+
+=PREMIERE REUNION DE PLANIFICATION DE SPRINT=
+
+Tout l'équipe de développement se réunit, ainsi le SCRUM MASTER et le PRODUCT OWNER. 
+On y choisit les élements prioritaires à réaliser dans le projet.
+Le projet étant court car réalisé sur la partie FRONT, il sera réalisé en un seul SPRINT.
+
+Tâches demandées: 
+    - Création de la page de login, 
+    - Création de la page d'inscription, 
+    - Création d'un mur utilisateur. 
+
+Le client souhaite pouvoir:
+    - Poster des publications,
+    - Liker des publications, 
+    - Commenter des publications,
+    - Choisir une photo de profil qui sera affichée sur son profil ainsi que ses psots et commentaires
+    - Accéder au mur d'un autre utilisateur. 
+    
+La DEADLINE est fixée pour dans 3 jours.
+L'équipe de développement est composée de 6 personnes: Damien, Marine, Bernard, Jordan, Lise et Cyril
+
+le développement commence au matin.
+
+Pour le lendemain, les tâches ont été déléguées comme ceci:
+    -Maquettage de login/inscription
+
+    -Jordan et Marine s'occupent de réaliser la partie HTML ainsi que la partie CSS de la page de login ainsi que la page d'inscription
+
+    -Lise et Cyril s'occupent de la partie JS de ces mêmes pages:
+    Lise gère l'interaction utilisateur de la page de login, et Cyril celle de la page d'inscription
+
+    -Damien et Bernard s'occupent du maquettage du mur utilisateur
+
+========================
+LE LENDEMAIN
+
+Stand Up à 10H:
+    Jordan et Marine ont terminé la mise en page login/inscription
+
+    Lise a terminé l'interaction utilisateur pour le login, Cyril doit encore travailler 30min dessus
+
+    Damien et Bernard ont terminé le maquettage du mur utilisateur
+
+    Déléguation des tâches du jour:
+        Cyril et Damien s'occupent de la mise en forme de l'HTML / CSS du mur utilisateur
+
+        -Lise et Marine gèrent la création de publication
+
+        -Jordan s'occupe du JS permettant l'utilisation et l'affichage de la photo de profil de l'utilisateur
+
+        -Bernard s'occupe des likes
