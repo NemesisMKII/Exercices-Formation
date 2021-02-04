@@ -1,9 +1,9 @@
 Exemple via TP Facebook
 
 Après rencontre avec le client, le PRODUCT OWNER revient vers nous: le projet est de créer un site similaire à Facebook
-Il nous fournit le PRODUCT BACKLOG, qui sera rempli au fur et à mesure des demandes et attentes du client.
+On remplit alors le PRODUCT BACKLOG, susceptible de changer aux demandes et attentes du client.
 
-S'en suit la première réunion de avec l'équipe de développement, une réunion supervisée par le SCRUM MASTER, chargé de faire comprendre 
+S'en suit la première réunion avec l'équipe de développement, ou entre en jeu le SCRUM MASTER, chargé de faire comprendre 
 la méthode agile SCRUM et de la faire appliquer par tout le monde.
 
 =PREMIERE REUNION DE PLANIFICATION DE SPRINT=
@@ -11,6 +11,11 @@ la méthode agile SCRUM et de la faire appliquer par tout le monde.
 Tout l'équipe de développement se réunit, ainsi le SCRUM MASTER et le PRODUCT OWNER. 
 On y choisit les élements prioritaires à réaliser dans le projet.
 Le projet étant court car réalisé sur la partie FRONT, il sera réalisé en un seul SPRINT.
+
+On se sert d'un tableau à plusieurs colonnes représentant les tâches à faire, les tâches en cours, les tâches terminées,
+on appelle ça le planning poker.
+
+Il n'y aura qu'une USER STORY, car un seul SPRINT
 
 Tâches demandées: 
     - Création de la page de login, 
@@ -24,10 +29,10 @@ Le client souhaite pouvoir:
     - Choisir une photo de profil qui sera affichée sur son profil ainsi que ses psots et commentaires
     - Accéder au mur d'un autre utilisateur. 
     
-La DEADLINE est fixée pour dans 3 jours.
+La DEADLINE est fixée pour dans 4 jours.
 L'équipe de développement est composée de 6 personnes: Damien, Marine, Bernard, Jordan, Lise et Cyril
 
-le développement commence au matin.
+le développement commence au matin. PREMIER JOUR DE DEV
 
 Pour le lendemain, les tâches ont été déléguées comme ceci:
     -Maquettage de login/inscription
@@ -40,7 +45,10 @@ Pour le lendemain, les tâches ont été déléguées comme ceci:
     -Damien et Bernard s'occupent du maquettage du mur utilisateur
 
 ========================
-LE LENDEMAIN
+LE LENDEMAIN, SECOND JOUR DE DEV
+
+Mise en page login/inscription terminée
+Maquette du mur utilisateur terminée
 
 Stand Up à 10H:
     Jordan et Marine ont terminé la mise en page login/inscription
@@ -57,3 +65,64 @@ Stand Up à 10H:
         -Jordan s'occupe du JS permettant l'utilisation et l'affichage de la photo de profil de l'utilisateur
 
         -Bernard s'occupe des likes
+
+=========================
+TROISIEME JOUR DE DEV
+
+Mise en page login/inscription terminée
+Maquette du mur utilisateur terminée
+Mise en page HTML / CSS du mur utilisateur terminé
+JS création publication terminé
+JS affichage pdp en cours
+JS likes en cours
+
+Stand Up à 10h:
+    Cyril et Damien on terminé la mise en forme de l'HTML / CSS du mur utilisateur
+
+    Lise et Marine on fini la partie JS de création de publication
+
+    -Jordan rencontre des difficultés en JS pour l'affichage de la pdp user
+
+    Bernard rencontre des difficultés en JS pour les likes
+
+Le client revient vers le PRODUCT OWNER, avec une nouvelle demande:
+    En tant qu'utilisateur, il souhaite pouvoir accéder au profil d'un autre utilisateur en cliquant sur son nom,
+    et ce, qu'il soit présent dans une publication, dans les commentaires, ou dans la liste ds likes.
+
+    Déléguation des tâches du jour:
+    Jordan et Lise terminent le JS de l'affichage pdp 
+
+    Bernard termine le JS des likes
+
+    Cyril et Marine s'occupent du JS création commentaires
+
+    Damien s'occupe du JS accès à un autre utilisateur
+
+=======================================
+DERNIER JOUR DE DEV 
+
+Mise en page login/inscription terminée
+Maquette du mur utilisateur terminée
+Mise en page HTML / CSS du mur utilisateur terminé
+JS création publication terminé
+JS affichage pdp terminé
+JS likes terminé
+Ajout de commentaires en cours
+Accès à un autre utilisateur terminé
+
+Stand Up à 10h:
+    Jordan et Lise ont terminé le JS de l'affichage pdp
+
+
+    Bernard à terminé le JS des likes
+
+    Cyril et Marine travaillent encore sur le JS création commentaires
+
+    Damien a terminé le JS accès à un autre utilisateur
+
+Déléguation des tâches:
+    Cyril, Marine et Jordan travaillent sur le JS création commentaires
+
+    Bernard, Damien et Lise travaillent sur le JS d'accès à un utilisateur à partir de son nom n'importe ou sur le site
+
+
